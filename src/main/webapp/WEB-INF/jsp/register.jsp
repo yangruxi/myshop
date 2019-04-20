@@ -23,25 +23,25 @@
 				var username = document.getElementById("username").value;
 				if (username == null || username == '') {
 					//alert("请填写用户名！");
-					error1.innerHTML = "<font color=red size=2>请填写用户名！</font>";
+					msg1.innerHTML = "<font color=red size=2>请填写用户名！</font>";
 					return false;
 				}
 				//校验密码
 				var password = document.getElementById("password").value;
 				if (password == null || password == '') {
-					error2.innerHTML = "<font color=red size=2>请填写密码！</font>";
+					msg2.innerHTML = "<font color=red size=2>请填写密码！</font>";
 					return false;
 				}
 				//校验再次输入的密码
 				var passwordRepeat = document.getElementById("passwordRepeat").value;
 				//是否为空
 				if (passwordRepeat == null || passwordRepeat == '') {
-					error3.innerHTML = "<font color=red size=2>请再次输入密码确认！</font>";
+					msg3.innerHTML = "<font color=red size=2>请再次输入密码确认！</font>";
 					return false;
 				}
 				//校验两次输入是否一致
 				if (passwordRepeat != password) {
-					error3.innerHTML = "<font color=red size=2>两次输入的密码不一致！</font>";
+					msg3.innerHTML = "<font color=red size=2>两次输入的密码不一致！</font>";
 					return false;
 				}
 			}
@@ -51,25 +51,25 @@
 				var username = document.getElementById("shop_owner_username").value;
 				if (username == null || username == '') {
 					//alert("请填写用户名！");
-					error4.innerHTML = "<font color=red size=2>请填写用户名！</font>";
+					msg4.innerHTML = "<font color=red size=2>请填写用户名！</font>";
 					return false;
 				}
 				//校验密码
 				var password = document.getElementById("shop_owner_password").value;
 				if (password == null || password == '') {
-					error5.innerHTML = "<font color=red size=2>请填写密码！</font>";
+					msg5.innerHTML = "<font color=red size=2>请填写密码！</font>";
 					return false;
 				}
 				//校验再次输入的密码
 				var passwordRepeat = document.getElementById("shop_owner_passwordRepeat").value;
 				//是否为空
 				if (passwordRepeat == null || passwordRepeat == '') {
-					error6.innerHTML = "<font color=red size=2>请再次输入密码确认！</font>";
+					msg6.innerHTML = "<font color=red size=2>请再次输入密码确认！</font>";
 					return false;
 				}
 				//校验两次输入是否一致
 				if (passwordRepeat != password) {
-					error6.innerHTML = "<font color=red size=2>两次输入的密码不一致！</font>";
+					msg6.innerHTML = "<font color=red size=2>两次输入的密码不一致！</font>";
 					return false;
 				}
 			}
@@ -84,6 +84,40 @@
 			}
 			function enable2() {
 				document.getElementById("accept2").disabled = false
+			}
+			//Ajax异步校验用户名
+			function checkUsername() {
+				//获得文本框的值
+				var username = document.getElementById("username").value;
+				//1.创建异步交互对象
+				var xhr = createXmlHttp();
+				//2.设置监听
+				xhr.onreadystatechange = function() {
+					if(xhr.readyState == 4 && xhr.status == 200) {
+						document.getElementById("msg1").innerHTML = xhr.responseText;
+					}
+				}
+				//3.打开连接
+				xhr.open("GET", "${pageContext.request.contextPath}/user_findByUsername?time=" + new Date().getTime() + "&username=" + username, true);
+				//4.发送
+				xhr.send(null);
+			}
+			function createXmlHttp() {
+				var xmlHttp;
+				try {//现代主流浏览器
+					xmlHttp = new XMLHttpRequest();
+				} catch(e) {
+					try {//IE
+						xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+					} catch(e) {
+						try {
+							xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+						} catch(e) {
+					
+						}
+					}
+				}
+				return xmlHttp;
 			}
 		</script>
 
@@ -110,18 +144,17 @@
 						<div class="am-tab-panel am-active">
 							<form action="#" method="post" onsubmit="return checkForm();">
 								<div class="user-name">
-									<label for="username"><i class="am-icon-male"></i></label> <input type="text" name="username" id="username" placeholder="请输入用户名">
-									
+									<label for="username"><i class="am-icon-male"></i></label> <input type="text" name="username" id="username" placeholder="请输入用户名" onblur="checkUsername()">
 								</div>
-								<div id="error1"></div>
+								<div id="msg1"></div>
 								<div class="user-pass">
 									<label for="password"><i class="am-icon-lock"></i></label> <input type="password" name="password" id="password" placeholder="设置密码">
 								</div>
-								<div id="error2"></div>
+								<div id="msg2"></div>
 								<div class="user-pass">
 									<label for="passwordRepeat"><i class="am-icon-lock"></i></label><input type="password" name="passwordRepeat" id="passwordRepeat" placeholder="确认密码">
 								</div>
-								<div id="error3"></div>
+								<div id="msg3"></div>
 								<div class="user-realname">
 									<label for="realname"><i class="am-icon-smile-o"></i></label> <input type="text" name="realname" id="realname" placeholder="请输入您的真实姓名">
 								</div>
@@ -150,17 +183,17 @@
 								<div class="user-name">
 									<label for="username"><i class="am-icon-male"></i></label> <input type="text" name="username" id="shop_owner_username" placeholder="请输入用户名">
 								</div>
-								<div id="error4"></div>
+								<div id="msg4"></div>
 								<div class="user-pass">
 									<label for="password"><i class="am-icon-lock"></i></label> <input
 										type="password" name="password" id="shop_owner_password" placeholder="设置密码">
 								</div>
-								<div id="error5"></div>
+								<div id="msg5"></div>
 								<div class="user-pass">
 									<label for="passwordRepeat"><i class="am-icon-lock"></i></label>
 									<input type="password" name="passwordRepeat" id="shop_owner_passwordRepeat" placeholder="确认密码">
 								</div>
-								<div id="error6"></div>
+								<div id="msg6"></div>
 								<div class="login-links">
 									 <div class="div-check"><input id="reader-me" type="checkbox" onclick="if(this.checked){enable2()} else {disable2()}"></div>
 									 <div class="div-text">点击表示您同意商城《服务协议》</div>
