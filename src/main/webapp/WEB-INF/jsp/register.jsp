@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
 <!DOCTYPE html>
 <html>
 
@@ -142,7 +143,7 @@
 
 							<div class="am-tabs-bd">
 						<div class="am-tab-panel am-active">
-							<form action="#" method="post" onsubmit="return checkForm();">
+							<form action="${pageContext.request.contextPath}/user_save.action" method="post" onsubmit="return checkForm();">
 								<div class="user-name">
 									<label for="username"><i class="am-icon-male"></i></label> <input type="text" name="username" id="username" placeholder="请输入用户名" onblur="checkUsername()">
 								</div>
@@ -161,9 +162,11 @@
 								<div class="user-email">
 									<label for="email"><i class="am-icon-envelope-o"></i></label> <input type="email" name="email" id="email" placeholder="请输入邮箱">
 								</div>
+								<span><s:fielderror fieldName="email"/> </span>
 								<div class="user-address">
 									<label for="address"><i class="am-icon-home"></i></label> <input type="text" name="address" id="address" placeholder="请输入地址（默认收货地址）">
 								</div>
+								<span><s:fielderror fieldName="address"/> </span>
 								<div class="user-tel">
 									<label for="tel"><i class="am-icon-phone"></i></label> <input type="tel" name="tel" id="tel" placeholder="请输入电话">
 								</div>

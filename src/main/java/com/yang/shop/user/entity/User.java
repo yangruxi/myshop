@@ -10,7 +10,7 @@ public class User {
 	private String real_name;
 	private String email;
 	private String address;
-	private Integer tel_number;
+	private String tel_number;
 	public Integer getUser_id() {
 		return user_id;
 	}
@@ -47,11 +47,10 @@ public class User {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public Integer getTel_number() {
+	public String getTel_number() {
 		return tel_number;
 	}
-	public void setTel_number(Integer tel_number) {
+	public void setTel_number(String tel_number) {
 		this.tel_number = tel_number;
 	}
-	
 }

@@ -12,14 +12,16 @@
 		http://www.springframework.org/schema/aop/spring-aop.xsd
 		http://www.springframework.org/schema/tx
 		http://www.springframework.org/schema/tx/spring-tx.xsd">
+		<aop:config proxy-target-class="true">
+		</aop:config>  
 	<!-- 读取属性配置文件 -->
 	<context:property-placeholder location="classpath:db.properties"/>
 	<!-- 配置c3p0数据源 -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="driverClass" value="${driverClass}"/>
 		<property name="jdbcUrl" value="${jdbcUrl}"/>
-		<property name="user" value="${user}"/>
-		<property name="password" value="${password}"/>
+		<property name="user" value="root"/>
+		<property name="password" value="123456"/>
 	</bean>
 	
 	<!-- hibernate相关信息 -->
@@ -36,6 +38,12 @@
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
 			</props>
 		</property>
+		<!-- 配置hibernate的映射文件 -->
+		<property name="mappingResources">
+			<list>
+				<value>com/yang/shop/user/entity/user.hbm.xml</value>
+			</list>
+		</property>
 	</bean>
 	
 	<!-- 事务管理 -->
@@ -46,6 +54,18 @@
 	<!-- 开启注解事务 -->
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
+	<!-- ==============Dao的配置============== -->
+	<bean id="userDao" class="com.yang.shop.user.dao.UserDao">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<!-- ==============Service的配置============== -->
+	<bean id="userService" class="com.yang.shop.user.service.UserService">
+		<!-- 注入Dao -->
+		<property name="userDao" ref="userDao"/>
+	</bean>
+	
+	
 	<!-- ==============Action的配置============== -->
 	<!-- 首页访问Action的配置 -->
 	<bean id="indexAction" class="com.yang.shop.index.action.IndexAction" scope="prototype">
@@ -55,16 +75,4 @@
 		<!-- 注入Service -->
 		<property name="userService" ref="userService"/>
 	</bean>
-	
-	<!-- ==============Service的配置============== -->
-	<bean id="userService" class="com.yang.shop.user.service.UserService">
-		<!-- 注入Dao -->
-		<property name="userDao" ref="userDao"/>
-	</bean>
-	
-	<!-- ==============Dao的配置============== -->
-	<bean id="userDao" class="com.yang.shop.user.dao.UserDao">
-		<property name="sessionFactory" ref="sessionFactory"/>
-	</bean>
-	
 </beans>

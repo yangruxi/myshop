@@ -4,7 +4,8 @@
 	"http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
 	<constant name="struts.devMode" value="false"/>
-	
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+
 	<package name="shop" extends="struts-default" namespace="/">
 		<!-- 配置首页访问的Action -->
 		<action name="index" class="indexAction">
@@ -14,7 +15,10 @@
 		<!-- 配置用户模块的Action -->
 		<action name="user_*" class="userAction" method="{1}">
 			<result name="registPage">/WEB-INF/jsp/register.jsp</result>
-			<allowed-methods>registPage</allowed-methods>
+			<result name="findByUsername">/WEB-INF/jsp/register.jsp</result>
+			<result name="input">/WEB-INF/jsp/register.jsp</result>
+			<allowed-methods>registPage,findByUsername,save</allowed-methods>
 		</action>
+		
 	</package>
 </struts>
