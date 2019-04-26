@@ -11,6 +11,7 @@ public class User {
 	private String email;
 	private String address;
 	private String tel_number;
+	private Long ctime;
 	public Integer getUser_id() {
 		return user_id;
 	}
@@ -52,5 +53,11 @@ public class User {
 	}
 	public void setTel_number(String tel_number) {
 		this.tel_number = tel_number;
+	}
+	public Long getCtime() {
+		return ctime;
+	}
+	public void setCtime(Long ctime) {
+		this.ctime = ctime;
 	}
 }

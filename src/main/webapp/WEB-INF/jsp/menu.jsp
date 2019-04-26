@@ -4,7 +4,7 @@
 	<ul class="message-l">
 		<div class="topMessage">
 			<div class="menu-hd">
-				<a href="#" target="_top" class="h">亲，请登录</a> 
+				<a href="${pageContext.request.contextPath}/user_loginPage.action" target="_top" class="h">亲，请登录</a> 
 				<span>&nbsp;&nbsp;</span>
 				<a href="${pageContext.request.contextPath}/user_registPage.action" target="_top">免费注册</a>
 			</div>

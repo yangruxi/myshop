@@ -17,7 +17,8 @@
 			<result name="registPage">/WEB-INF/jsp/register.jsp</result>
 			<result name="findByUsername">/WEB-INF/jsp/register.jsp</result>
 			<result name="input">/WEB-INF/jsp/register.jsp</result>
-			<allowed-methods>registPage,findByUsername,save</allowed-methods>
+			<result name="loginPage">/WEB-INF/jsp/login.jsp</result>
+			<allowed-methods>registPage,findByUsername,save,loginPage</allowed-methods>
 		</action>
 		
 	</package>

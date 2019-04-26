@@ -39,10 +39,11 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 		// TODO Auto-generated method stub
 		return user;
 	}
+	
 	/**
 	 * 跳转到注册页面的执行方法
 	 */
-	public String registPage(){
+	public String registPage() {
 		return "registPage";
 	}
 
@@ -85,26 +86,35 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 		// TODO Auto-generated method stub
 		super.addFieldError(fieldName, errorMessage);
 	}
+	
 	/**
 	 * 用户注册的方法
 	 */
-	public String save(){
-		System.out.println("进入regist方法");
+	public String save() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		String passwordRepeat = request.getParameter("passwordRepeat");
 		String realname = request.getParameter("realname");
 		String email = request.getParameter("email");
 		String address = request.getParameter("address");
 		String tel = request.getParameter("tel");
+		Long ctime = System.currentTimeMillis();
 		user.setUser_name(username);
 		user.setPassword(password);
 		user.setReal_name(realname);
 		user.setEmail(email);
 		user.setAddress(address);
 		user.setTel_number(tel);
+		user.setCtime(ctime);
+		System.out.println(user.getCtime());
 		userService.save(user);
 		return NONE;
+	}
+	
+	/**
+	 * 用户登录的方法
+	 */
+	public String loginPage() {
+		return "loginPage";
 	}
 }

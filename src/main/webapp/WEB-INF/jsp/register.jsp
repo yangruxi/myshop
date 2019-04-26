@@ -135,91 +135,118 @@
 				<div class="login-banner-bg"><span></span><img class="login-img" src="${pageContext.request.contextPath}/images/login-background.jpeg" /></div>
 				<div class="login-box">
 
-						<div class="am-tabs" id="doc-my-tabs">
-							<ul class="am-tabs-nav am-nav am-nav-tabs am-nav-justify">
-								<li class="am-active"><a href="">用户注册</a></li>
-								<li><a href="">商家注册</a></li>
-							</ul>
+				<div class="am-tabs" id="doc-my-tabs">
+					<ul class="am-tabs-nav am-nav am-nav-tabs am-nav-justify">
+						<li class="am-active"><a href="">用户注册</a></li>
+						<li><a href="">商家注册</a></li>
+					</ul>
 
-							<div class="am-tabs-bd">
+					<div class="am-tabs-bd">
 						<div class="am-tab-panel am-active">
-							<form action="${pageContext.request.contextPath}/user_save.action" method="post" onsubmit="return checkForm();">
+							<form
+								action="${pageContext.request.contextPath}/user_save.action"
+								method="post" onsubmit="return checkForm();">
 								<div class="user-name">
-									<label for="username"><i class="am-icon-male"></i></label> <input type="text" name="username" id="username" placeholder="请输入用户名" onblur="checkUsername()">
+									<label for="username"><i class="am-icon-male"></i></label> <input
+										type="text" name="username" id="username" placeholder="请输入用户名"
+										onblur="checkUsername()">
 								</div>
 								<div id="msg1"></div>
 								<div class="user-pass">
-									<label for="password"><i class="am-icon-lock"></i></label> <input type="password" name="password" id="password" placeholder="设置密码">
+									<label for="password"><i class="am-icon-lock"></i></label> <input
+										type="password" name="password" id="password"
+										placeholder="设置密码">
 								</div>
 								<div id="msg2"></div>
 								<div class="user-pass">
-									<label for="passwordRepeat"><i class="am-icon-lock"></i></label><input type="password" name="passwordRepeat" id="passwordRepeat" placeholder="确认密码">
+									<label for="passwordRepeat"><i class="am-icon-lock"></i></label><input
+										type="password" name="passwordRepeat" id="passwordRepeat"
+										placeholder="确认密码">
 								</div>
 								<div id="msg3"></div>
 								<div class="user-realname">
-									<label for="realname"><i class="am-icon-smile-o"></i></label> <input type="text" name="realname" id="realname" placeholder="请输入您的真实姓名">
+									<label for="realname"><i class="am-icon-smile-o"></i></label> <input
+										type="text" name="realname" id="realname"
+										placeholder="请输入您的真实姓名">
 								</div>
 								<div class="user-email">
-									<label for="email"><i class="am-icon-envelope-o"></i></label> <input type="email" name="email" id="email" placeholder="请输入邮箱">
+									<label for="email"><i class="am-icon-envelope-o"></i></label> <input
+										type="email" name="email" id="email" placeholder="请输入邮箱">
 								</div>
-								<span><s:fielderror fieldName="email"/> </span>
+								<span><s:fielderror fieldName="email" /> </span>
 								<div class="user-address">
-									<label for="address"><i class="am-icon-home"></i></label> <input type="text" name="address" id="address" placeholder="请输入地址（默认收货地址）">
+									<label for="address"><i class="am-icon-home"></i></label> <input
+										type="text" name="address" id="address"
+										placeholder="请输入地址（默认收货地址）">
 								</div>
-								<span><s:fielderror fieldName="address"/> </span>
+								<span><s:fielderror fieldName="address" /> </span>
 								<div class="user-tel">
-									<label for="tel"><i class="am-icon-phone"></i></label> <input type="tel" name="tel" id="tel" placeholder="请输入电话">
+									<label for="tel"><i class="am-icon-phone"></i></label> <input
+										type="tel" name="tel" id="tel" placeholder="请输入电话">
 								</div>
 								<div class="login-links">
-									 <div class="div-check"><input id="reader-me" type="checkbox" onclick="if(this.checked){enable()} else {disable()}"></div>
-									 <div class="div-text">点击表示您同意商城《服务协议》</div>
+									<div class="div-check">
+										<input id="reader-me" type="checkbox"
+											onclick="if(this.checked){enable()} else {disable()}">
+									</div>
+									<div class="div-text">点击表示您同意商城《服务协议》</div>
 								</div>
 								<div class="am-cf">
-									<input type="submit" id="accept" disabled="" name="" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl">
+									<input type="submit" id="accept" disabled="" name="" value="注册"
+										class="am-btn am-btn-primary am-btn-sm am-fl">
 								</div>
 							</form>
-							
+
 						</div>
 
 						<div class="am-tab-panel">
 							<form method="post" onsubmit="return checkForm2();">
 								<div class="user-name">
-									<label for="username"><i class="am-icon-male"></i></label> <input type="text" name="username" id="shop_owner_username" placeholder="请输入用户名">
+									<label for="username"><i class="am-icon-male"></i></label> <input
+										type="text" name="username" id="shop_owner_username"
+										placeholder="请输入用户名">
 								</div>
 								<div id="msg4"></div>
 								<div class="user-pass">
 									<label for="password"><i class="am-icon-lock"></i></label> <input
-										type="password" name="password" id="shop_owner_password" placeholder="设置密码">
+										type="password" name="password" id="shop_owner_password"
+										placeholder="设置密码">
 								</div>
 								<div id="msg5"></div>
 								<div class="user-pass">
 									<label for="passwordRepeat"><i class="am-icon-lock"></i></label>
-									<input type="password" name="passwordRepeat" id="shop_owner_passwordRepeat" placeholder="确认密码">
+									<input type="password" name="passwordRepeat"
+										id="shop_owner_passwordRepeat" placeholder="确认密码">
 								</div>
 								<div id="msg6"></div>
 								<div class="login-links">
-									 <div class="div-check"><input id="reader-me" type="checkbox" onclick="if(this.checked){enable2()} else {disable2()}"></div>
-									 <div class="div-text">点击表示您同意商城《服务协议》</div>
+									<div class="div-check">
+										<input id="reader-me" type="checkbox"
+											onclick="if(this.checked){enable2()} else {disable2()}">
+									</div>
+									<div class="div-text">点击表示您同意商城《服务协议》</div>
 								</div>
 								<div class="am-cf">
-									<input type="submit" id="accept2" disabled="" name="" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl">
+									<input type="submit" id="accept2" disabled="" name=""
+										value="注册" class="am-btn am-btn-primary am-btn-sm am-fl">
 								</div>
 							</form>
-								
-									<hr>
-								</div>
 
-								<script>
-									$(function() {
-									    $('#doc-my-tabs').tabs();
-									  })
-								</script>
-
-							</div>
+							<hr>
 						</div>
 
+						<script>
+							$(function() {
+								$('#doc-my-tabs').tabs();
+							})
+						</script>
+
+					</div>
 				</div>
+
+			</div>	
 			</div>
+		</div>
 			
 					<div class="footer ">
 						<div class="footer-hd ">

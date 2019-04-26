@@ -13,5 +13,6 @@
 		<property name="email"/>
 		<property name="address"/>
 		<property name="tel_number"/>
+		<property name="ctime"/>
 	</class>
 </hibernate-mapping>
