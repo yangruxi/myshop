@@ -115,7 +115,7 @@
 						</div>
 
 						<div class="am-tab-panel">
-							<form action="${pageContext.request.contextPath}/user_registPage.action" method="post" onsubmit="return checkForm2();">
+							<form action="" method="post" onsubmit="return checkForm2();">
 								<div class="user-name">
 									<label for="user"><i class="am-icon-user"></i></label> <input
 										type="text" name="" id="user" placeholder="邮箱/手机/用户名">
