@@ -115,7 +115,7 @@
 						</div>
 
 						<div class="am-tab-panel">
-							<form action="" method="post" onsubmit="return checkFrom2();">
+							<form action="${pageContext.request.contextPath}/user_registPage.action" method="post" onsubmit="return checkForm2();">
 								<div class="user-name">
 									<label for="user"><i class="am-icon-user"></i></label> <input
 										type="text" name="" id="user" placeholder="邮箱/手机/用户名">
@@ -140,7 +140,7 @@
 								</div>
 							</form>
 							<div class="regist-now">
-								<a href="${pageContext.request.contextPath}/user_registPage.action" class="">没有账号？立即注册</a>
+								<a href="${pageContext.request.contextPath}/user_registPage.action" class="">没有商家账号？立即注册</a>
 							</div>
 						</div>
 						<div class="am-tab-panel">
