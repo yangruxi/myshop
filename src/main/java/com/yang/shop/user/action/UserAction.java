@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts2.ServletActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
-import com.yang.shop.user.entity.User;
 import com.yang.shop.user.service.UserService;
+import com.yang.shop.user.vo.User;
 
 /**
  * 用户模块的Action类
@@ -91,22 +91,8 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 	 * 用户注册的方法
 	 */
 	public String save() {
-		HttpServletRequest request = ServletActionContext.getRequest();
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		String realname = request.getParameter("realname");
-		String email = request.getParameter("email");
-		String address = request.getParameter("address");
-		String tel = request.getParameter("tel");
 		Long ctime = System.currentTimeMillis();
-		user.setUser_name(username);
-		user.setPassword(password);
-		user.setReal_name(realname);
-		user.setEmail(email);
-		user.setAddress(address);
-		user.setTel_number(tel);
 		user.setCtime(ctime);
-		System.out.println(user.getCtime());
 		userService.save(user);
 		return NONE;
 	}

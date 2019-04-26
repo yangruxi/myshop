@@ -41,7 +41,7 @@
 		<!-- 配置hibernate的映射文件 -->
 		<property name="mappingResources">
 			<list>
-				<value>com/yang/shop/user/entity/user.hbm.xml</value>
+				<value>com/yang/shop/user/vo/user.hbm.xml</value>
 			</list>
 		</property>
 	</bean>

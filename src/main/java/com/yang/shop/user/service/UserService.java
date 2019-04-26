@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.yang.shop.user.dao.UserDao;
-import com.yang.shop.user.entity.User;
+import com.yang.shop.user.vo.User;
 
 /**
  * 用户模块业务层代码

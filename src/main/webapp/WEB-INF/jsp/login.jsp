@@ -16,6 +16,23 @@
 		<link href="${pageContext.request.contextPath}/css/dlstyle.css" rel="stylesheet" type="text/css">
 		<script src="${pageContext.request.contextPath}/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
 		<script src="${pageContext.request.contextPath}/AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
+		<script type="text/javascript">
+			//用户登录表单校验
+			function checkForm() {
+				//校验用户名
+				var user = document.getElementById("user").value;
+				if(user == null || user == '') {
+					msg1.innerHTML = "<font  color=red size=2>用户名不能为空！</font>";
+					return false;
+				}
+				//校验密码
+				var password = document.getElementById("password").value;
+				if(password == null || password == '') {
+					msg2.innerHTML = "<font  color=red size=2>密码不能为空！</font>";
+					return false;
+				}
+			}
+		</script>
 	</head>
 
 	<body>
@@ -38,16 +55,17 @@
 
 					<div class="am-tabs-bd">
 						<div class="am-tab-panel am-active">
-							<form action="" method="post">
+							<form action="" method="post" onsubmit="return checkForm();">
 								<div class="user-name">
 									<label for="user"><i class="am-icon-user"></i></label> <input
 										type="text" name="" id="user" placeholder="邮箱/手机/用户名">
 								</div>
+								<div id="msg1"></div>
 								<div class="user-pass">
 									<label for="password"><i class="am-icon-lock"></i></label> <input
 										type="password" name="" id="password" placeholder="请输入密码">
 								</div>
-								
+								<div id="msg2"></div>
 								<div class="login-links">
 									<div class="div-check">
 										<input id="remember-me" type="checkbox">

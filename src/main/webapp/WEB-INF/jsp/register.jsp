@@ -45,6 +45,13 @@
 					msg3.innerHTML = "<font color=red size=2>两次输入的密码不一致！</font>";
 					return false;
 				}
+				//校验电话号码
+				var tel = document.getElementById("tel").value;
+				var regex = /^1[34578]\d{9}$/;
+				if(regex.test(tel) == false) {
+					msg7.innerHTML = "<font color=red size=2>电话号码格式不正确！</font>";
+					return false;
+				}
 			}
 			//店家注册页面表单校验
 			function checkForm2() {
@@ -184,6 +191,7 @@
 									<label for="tel"><i class="am-icon-phone"></i></label> <input
 										type="tel" name="tel" id="tel" placeholder="请输入电话">
 								</div>
+								<div id="msg7"></div>
 								<div class="login-links">
 									<div class="div-check">
 										<input id="reader-me" type="checkbox"

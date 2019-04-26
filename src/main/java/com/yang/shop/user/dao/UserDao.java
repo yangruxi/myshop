@@ -6,7 +6,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import com.yang.shop.user.entity.User;
+import com.yang.shop.user.vo.User;
 
 /**
  * 用户模块持久层的代码
@@ -28,7 +28,7 @@ public class UserDao{
 	//根据用户名查询是否有该用户
 	public User findByUsername(String username) {
 		Session session = sessionFactory.getCurrentSession();
-		String hql = "FROM com.yang.shop.user.entity.User user WHERE user.user_name = ?";
+		String hql = "FROM com.yang.shop.user.vo.User user WHERE user.username = ?";
 		Query query = session.createQuery(hql);
 		query.setParameter(0, username);
 		List<User> list = query.list();
