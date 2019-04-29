@@ -124,7 +124,6 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 	 * 用户退出登录的方法
 	 */
 	public String quit() {
-		System.out.println("退出登录");
 		//销毁session
 		ServletActionContext.getRequest().getSession().invalidate();
 		return "quit";

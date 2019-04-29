@@ -53,7 +53,7 @@
 					return false;
 				}
 			}
-			//店家注册页面表单校验
+			//商家注册页面表单校验
 			function checkForm2() {
 				//校验用户名
 				var username = document.getElementById("shop_owner_username").value;
@@ -208,7 +208,7 @@
 						</div>
 
 						<div class="am-tab-panel">
-							<form method="post" onsubmit="return checkForm2();">
+							<form action="${pageContext.request.contextPath}/shopowner_save.action" method="post" onsubmit="return checkForm2();">
 								<div class="user-name">
 									<label for="username"><i class="am-icon-male"></i></label> <input
 										type="text" name="username" id="shop_owner_username"

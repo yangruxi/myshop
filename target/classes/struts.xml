@@ -24,5 +24,9 @@
 			<allowed-methods>registPage,findByUsername,save,loginPage,signin,quit</allowed-methods>
 		</action>
 		
+		<!-- 商家模块的Action -->
+		<action name="shopowner_*" class="shopOwnerAction" method="{1}">
+			<allowed-methods>save</allowed-methods>
+		</action>
 	</package>
 </struts>

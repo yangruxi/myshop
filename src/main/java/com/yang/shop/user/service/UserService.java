@@ -1,6 +1,5 @@
 package com.yang.shop.user.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.yang.shop.user.dao.UserDao;
