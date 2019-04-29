@@ -20,8 +20,8 @@
 			//用户登录表单校验
 			function checkForm() {
 				//校验用户名
-				var user = document.getElementById("user").value;
-				if(user == null || user == '') {
+				var username = document.getElementById("username").value;
+				if(username == null || username == '') {
 					msg1.innerHTML = "<font  color=red size=2>用户名不能为空！</font>";
 					return false;
 				}
@@ -35,8 +35,8 @@
 			//商家登录表单验证
 			function checkForm2() {
 				//校验用户名
-				var user = document.getElementById("user").value;
-				if(user == null || user == '') {
+				var username = document.getElementById("username").value;
+				if(username == null || username == '') {
 					msg3.innerHTML = "<font  color=red size=2>用户名不能为空！</font>";
 					return false;
 				}
@@ -50,8 +50,8 @@
 			//管理员登录表单验证
 			function checkForm3() {
 				//校验用户名
-				var user = document.getElementById("user").value;
-				if(user == null || user == '') {
+				var username = document.getElementById("username").value;
+				if(username == null || username == '') {
 					msg5.innerHTML = "<font  color=red size=2>用户名不能为空！</font>";
 					return false;
 				}
@@ -85,15 +85,15 @@
 
 					<div class="am-tabs-bd">
 						<div class="am-tab-panel am-active">
-							<form action="" method="post" onsubmit="return checkForm();">
+							<form action="${pageContext.request.contextPath }/user_signin.action" method="post" onsubmit="return checkForm();">
 								<div class="user-name">
 									<label for="user"><i class="am-icon-user"></i></label> <input
-										type="text" name="" id="user" placeholder="邮箱/手机/用户名">
+										type="text" name="username" id="username" placeholder="用户名">
 								</div>
 								<div id="msg1"></div>
 								<div class="user-pass">
 									<label for="password"><i class="am-icon-lock"></i></label> <input
-										type="password" name="" id="password" placeholder="请输入密码">
+										type="password" name="password" id="password" placeholder="请输入密码">
 								</div>
 								<div id="msg2"></div>
 								<div class="login-links">
@@ -108,6 +108,9 @@
 									<input type="submit" name="" value="登 录"
 										class="am-btn am-btn-primary am-btn-sm">
 								</div>
+								<div>
+									<font color=red><s:actionerror/></font>
+								</div>
 							</form>
 							<div class="regist-now">
 								<a href="${pageContext.request.contextPath}/user_registPage.action" class="">没有账号？立即注册</a>
@@ -118,7 +121,7 @@
 							<form action="" method="post" onsubmit="return checkForm2();">
 								<div class="user-name">
 									<label for="user"><i class="am-icon-user"></i></label> <input
-										type="text" name="" id="user" placeholder="邮箱/手机/用户名">
+										type="text" name="" id="username" placeholder="用户名">
 								</div>
 								<div id="msg3"></div>
 								<div class="user-pass">
@@ -147,7 +150,7 @@
 							<form action="" method="post" onsubmit="return checkForm3();">
 								<div class="user-name">
 									<label for="user"><i class="am-icon-user"></i></label> <input
-										type="text" name="" id="user" placeholder="邮箱/手机/用户名">
+										type="text" name="" id="username" placeholder="用户名">
 								</div>
 								<div id="msg5"></div>
 								<div class="user-pass">

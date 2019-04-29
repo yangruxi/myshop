@@ -1,12 +1,22 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <!--顶部导航条 -->
 <div class="am-container header">
 	<ul class="message-l">
 		<div class="topMessage">
 			<div class="menu-hd">
-				<a href="${pageContext.request.contextPath}/user_loginPage.action" target="_top" class="h">亲，请登录</a> 
-				<span>&nbsp;&nbsp;</span>
-				<a href="${pageContext.request.contextPath}/user_registPage.action" target="_top">免费注册</a>
+				<s:if test="#session.existUser == null">
+					<a href="${pageContext.request.contextPath}/user_loginPage.action" target="_top" class="h">亲，请登录</a> 
+					<span>&nbsp;&nbsp;</span>
+					<a href="${pageContext.request.contextPath}/user_registPage.action" target="_top">免费注册</a>
+				</s:if>
+				<s:else>
+					<font color="#d26f73"><s:property value="#session.existUser.username"/></font>
+					<span>&nbsp;&nbsp;</span>|<span>&nbsp;&nbsp;</span>
+					<a href="#">我的订单</a>
+					<span>&nbsp;&nbsp;</span>|<span>&nbsp;&nbsp;</span>
+					<a href="${pageContext.request.contextPath}/user_quit.action">退出登录</a>
+				</s:else>
 			</div>
 		</div>
 	</ul>

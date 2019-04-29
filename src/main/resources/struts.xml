@@ -18,7 +18,10 @@
 			<result name="findByUsername">/WEB-INF/jsp/register.jsp</result>
 			<result name="input">/WEB-INF/jsp/register.jsp</result>
 			<result name="loginPage">/WEB-INF/jsp/login.jsp</result>
-			<allowed-methods>registPage,findByUsername,save,loginPage</allowed-methods>
+			<result name="login">/WEB-INF/jsp/login.jsp</result>
+			<result name="signinSuccess" type="redirectAction">index</result>
+			<result name="quit" type="redirectAction">index</result>
+			<allowed-methods>registPage,findByUsername,save,loginPage,signin,quit</allowed-methods>
 		</action>
 		
 	</package>

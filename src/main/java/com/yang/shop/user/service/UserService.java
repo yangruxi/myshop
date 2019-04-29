@@ -37,4 +37,9 @@ public class UserService {
 		// TODO Auto-generated method stub
 		userDao.save(user);
 	}
+
+	//用户登录的方法
+	public User signin(User user) {
+		return userDao.signin(user);
+	}
 }

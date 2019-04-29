@@ -98,9 +98,35 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 	}
 	
 	/**
-	 * 用户登录的方法
+	 * 跳转到用户登录的方法
 	 */
 	public String loginPage() {
 		return "loginPage";
+	}
+	
+	/**
+	 * 用户登录的方法
+	 */
+	public String signin() {
+		User existUser = userService.signin(user);
+		if(existUser == null) {
+			//登录失败
+			this.addActionError("登录失败：用户名或密码错误！");
+			return LOGIN;
+		} else {
+			//登录成功
+			ServletActionContext.getRequest().getSession().setAttribute("existUser", existUser);
+			return "signinSuccess";
+		}
+	}
+	
+	/**
+	 * 用户退出登录的方法
+	 */
+	public String quit() {
+		System.out.println("退出登录");
+		//销毁session
+		ServletActionContext.getRequest().getSession().invalidate();
+		return "quit";
 	}
 }
