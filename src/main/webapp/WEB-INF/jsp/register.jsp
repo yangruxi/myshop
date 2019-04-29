@@ -53,6 +53,7 @@
 					return false;
 				}
 			}
+			
 			//商家注册页面表单校验
 			function checkForm2() {
 				//校验用户名
@@ -81,6 +82,8 @@
 					return false;
 				}
 			}
+			
+			//复选框选择状态才可以点击注册按钮
 			function disable() {
 				document.getElementById("accept").disabled = true
 			}
@@ -93,6 +96,7 @@
 			function enable2() {
 				document.getElementById("accept2").disabled = false
 			}
+			
 			//Ajax异步校验用户名
 			function checkUsername() {
 				//获得文本框的值
@@ -110,6 +114,7 @@
 				//4.发送
 				xhr.send(null);
 			}
+			
 			function createXmlHttp() {
 				var xmlHttp;
 				try {//现代主流浏览器
@@ -127,6 +132,26 @@
 				}
 				return xmlHttp;
 			}
+			
+			//Ajax异步校验商家用户名
+			function checkShopOwnerName() {
+				//获得文本框的值
+				var username = document.getElementById("shop_owner_username").value;
+				//1.创建异步交互对象
+				var xhr = createXmlHttp();
+				//2.设置监听
+				xhr.onreadystatechange = function() {
+					if(xhr.readyState == 4 && xhr.status == 200) {
+						document.getElementById("msg4").innerHTML = xhr.responseText;
+					}
+				}
+				//3.打开连接
+				xhr.open("GET", "${pageContext.request.contextPath}/shopowner_findByName?time=" + new Date().getTime() + "&shop_owner_username=" + username, true);
+				//4.发送
+				xhr.send(null);
+			}
+			
+			
 		</script>
 
 	</head>
@@ -212,7 +237,7 @@
 								<div class="user-name">
 									<label for="username"><i class="am-icon-male"></i></label> <input
 										type="text" name="username" id="shop_owner_username"
-										placeholder="请输入用户名">
+										placeholder="请输入用户名" onblur="checkShopOwnerName()">
 								</div>
 								<div id="msg4"></div>
 								<div class="user-pass">

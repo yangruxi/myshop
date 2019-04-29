@@ -24,5 +24,9 @@ public class ShopOwnerService {
 	public void save(ShopOwner shopOwner) {
 		shopOwnerDao.save(shopOwner);
 	}
+
+	public ShopOwner findByName(String name) {
+		return shopOwnerDao.findByName(name);
+	}
 	
 }

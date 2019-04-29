@@ -40,9 +40,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 		return user;
 	}
 	
-	/**
-	 * 跳转到注册页面的执行方法
-	 */
+	//跳转到注册页面的执行方法
 	public String registPage() {
 		return "registPage";
 	}
@@ -55,13 +53,13 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 		//调用Service进行查询
 		HttpServletRequest request = ServletActionContext.getRequest();
 		String username = request.getParameter("username");
-		User exitUser =  userService.findByUsername(username);
+		User existUser =  userService.findByUsername(username);
 		//获得response对象，将页面进行输出
 		HttpServletResponse response = ServletActionContext.getResponse();
 		//设置编码
 		response.setContentType("text/html;charset=UTF-8");
 		//对结果进行判断
-		if(exitUser != null) {
+		if(existUser != null) {
 			//返回结果不为null，则代表使用该用户名的对象已存在
 			response.getWriter().print("<font color=red size=2>该用户名已存在！</font>");
 		} else {
@@ -87,9 +85,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 		super.addFieldError(fieldName, errorMessage);
 	}
 	
-	/**
-	 * 用户注册的方法
-	 */
+	//用户注册的方法
 	public String save() {
 		Long ctime = System.currentTimeMillis();
 		user.setCtime(ctime);
@@ -97,16 +93,12 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 		return NONE;
 	}
 	
-	/**
-	 * 跳转到用户登录的方法
-	 */
+	//跳转到用户登录的方法
 	public String loginPage() {
 		return "loginPage";
 	}
 	
-	/**
-	 * 用户登录的方法
-	 */
+	//用户登录的方法
 	public String signin() {
 		User existUser = userService.signin(user);
 		if(existUser == null) {
@@ -120,9 +112,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 		}
 	}
 	
-	/**
-	 * 用户退出登录的方法
-	 */
+	//用户退出登录的方法
 	public String quit() {
 		//销毁session
 		ServletActionContext.getRequest().getSession().invalidate();

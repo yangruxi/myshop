@@ -19,11 +19,9 @@ public class UserDao{
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;
 	}
+	
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
-	}
-	private Session getCurrentSession() {
-		return this.sessionFactory.openSession();
 	}
 	
 	//根据用户名查询是否有该用户
