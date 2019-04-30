@@ -32,7 +32,7 @@ public class UserDao{
 		query.setParameter(0, username);
 		List<User> list = query.list();
 		if(list != null && list.size() > 0) {
-			return (User) list.get(0);
+			return list.get(0);
 		}
 		return null;
 	}

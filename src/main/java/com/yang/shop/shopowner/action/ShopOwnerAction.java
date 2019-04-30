@@ -12,6 +12,11 @@ import com.opensymphony.xwork2.ModelDriven;
 import com.yang.shop.shopowner.service.ShopOwnerService;
 import com.yang.shop.shopowner.vo.ShopOwner;
 
+/**
+ * 商家模块的Action类
+ * @author yangruxi
+ *
+ */
 public class ShopOwnerAction extends ActionSupport implements ModelDriven<ShopOwner>{
 	//模型驱动使用的对象
 	private ShopOwner shopOwner = new ShopOwner();
@@ -36,7 +41,6 @@ public class ShopOwnerAction extends ActionSupport implements ModelDriven<ShopOw
 	}
 
 	public ShopOwner getModel() {
-		// TODO Auto-generated method stub
 		return shopOwner;
 	}
 	
@@ -79,7 +83,7 @@ public class ShopOwnerAction extends ActionSupport implements ModelDriven<ShopOw
 		ShopOwner existShopOwner = shopOwnerService.signin(shopOwner);
 		if(existShopOwner == null) {
 			//登录失败
-			this.addActionError("用户名或密码不正确！");
+			this.addActionError("商家登录失败：用户名或密码不正确！");
 			return LOGIN;
 		} else {
 			//登录成功

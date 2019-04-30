@@ -43,6 +43,7 @@
 			<list>
 				<value>com/yang/shop/user/vo/user.hbm.xml</value>
 				<value>com/yang/shop/shopowner/vo/shopOwner.hbm.xml</value>
+				<value>com/yang/shop/admin/vo/admin.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -64,6 +65,10 @@
 	<bean id="shopOwnerDao" class="com.yang.shop.shopowner.dao.ShopOwnerDao">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	<!-- 超级管理员模块的Dao -->
+	<bean id="adminDao" class="com.yang.shop.admin.dao.AdminDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 	
 	<!-- ==============Service的配置============== -->
 	<!-- 用户模块的Service -->
@@ -75,6 +80,11 @@
 	<bean id="shopOwnerService" class="com.yang.shop.shopowner.service.ShopOwnerService">
 		<!-- 注入Dao -->
 		<property name="shopOwnerDao" ref="shopOwnerDao"></property>
+	</bean>
+	<!-- 超级管理员模块的Service -->
+	<bean id="adminService" class="com.yang.shop.admin.service.AdminService">
+		<!-- 注入Dao -->
+		<property name="adminDao" ref="adminDao"></property>
 	</bean>
 	
 	<!-- ==============Action的配置============== -->
@@ -90,5 +100,10 @@
 	<bean id="shopOwnerAction" class="com.yang.shop.shopowner.action.ShopOwnerAction" scope="prototype">
 		<!-- 注入Service -->
 		<property name="shopOwnerService" ref="shopOwnerService"></property>
+	</bean>
+	<!-- 超级管理员模块的Action -->
+	<bean id="adminAction" class="com.yang.shop.admin.action.AdminAction" scope="prototype">
+		<!-- 注入Service -->
+		<property name="adminService" ref="adminService"></property>
 	</bean>
 </beans>

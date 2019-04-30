@@ -5,22 +5,29 @@
 	<ul class="message-l">
 		<div class="topMessage">
 			<div class="menu-hd">
-				<s:if test="#session.existUser == null && #session.existShopOwner == null">
+				<s:if test="#session.existUser == null && #session.existShopOwner == null && #session.existAdmin == null">
 					<a href="${pageContext.request.contextPath}/user_loginPage.action" target="_top" class="h">亲，请登录</a> 
 					<span>&nbsp;&nbsp;</span>
 					<a href="${pageContext.request.contextPath}/user_registPage.action" target="_top">免费注册</a>
 				</s:if>
 				<s:elseif test="#session.existUser != null">
-					<font color="#d26f73"><s:property value="#session.existUser.username"/></font>
+					<font color="#d26f73">用户：<s:property value="#session.existUser.username"/></font>
 					<span>&nbsp;&nbsp;</span>|<span>&nbsp;&nbsp;</span>
 					<a href="#">我的订单</a>
 					<span>&nbsp;&nbsp;</span>|<span>&nbsp;&nbsp;</span>
 					<a href="${pageContext.request.contextPath}/user_quit.action">退出登录</a>
 				</s:elseif>
 				<s:elseif test="#session.existShopOwner != null">
-					<font color="#d26f73"><s:property value="#session.existShopOwner.username"/></font>
+					<font color="#d26f73">商家：<s:property value="#session.existShopOwner.username"/></font>
 					<span>&nbsp;&nbsp;</span>|<span>&nbsp;&nbsp;</span>
 					<a href="#">我的店铺</a>
+					<span>&nbsp;&nbsp;</span>|<span>&nbsp;&nbsp;</span>
+					<a href="${pageContext.request.contextPath}/user_quit.action">退出登录</a>
+				</s:elseif>
+				<s:elseif test="#session.existAdmin != null">
+					<font color="#d26f73">超级管理员：<s:property value="#session.existAdmin.username"/></font>
+					<span>&nbsp;&nbsp;</span>|<span>&nbsp;&nbsp;</span>
+					<a href="#">管理员页面</a>
 					<span>&nbsp;&nbsp;</span>|<span>&nbsp;&nbsp;</span>
 					<a href="${pageContext.request.contextPath}/user_quit.action">退出登录</a>
 				</s:elseif>

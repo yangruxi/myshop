@@ -149,15 +149,15 @@
 							</div>
 						</div>
 						<div class="am-tab-panel">
-							<form action="" method="post" onsubmit="return checkForm3();">
+							<form action="${pageContext.request.contextPath}/admin_signin.action" method="post" onsubmit="return checkForm3();">
 								<div class="user-name">
 									<label for="user"><i class="am-icon-user"></i></label> <input
-										type="text" name="" id="admin_username" placeholder="用户名">
+										type="text" name="username" id="admin_username" placeholder="用户名">
 								</div>
 								<div id="msg5"></div>
 								<div class="user-pass">
 									<label for="password"><i class="am-icon-lock"></i></label> <input
-										type="password" name="" id="admin_password" placeholder="请输入密码">
+										type="password" name="password" id="admin_password" placeholder="请输入密码">
 								</div>
 								<div id="msg6"></div>
 								<div class="login-links">
