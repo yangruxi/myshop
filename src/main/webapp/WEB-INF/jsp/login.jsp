@@ -32,31 +32,33 @@
 					return false;
 				}
 			}
+			
 			//商家登录表单验证
 			function checkForm2() {
 				//校验用户名
-				var username = document.getElementById("username").value;
+				var username = document.getElementById("shopowner_username").value;
 				if(username == null || username == '') {
 					msg3.innerHTML = "<font  color=red size=2>用户名不能为空！</font>";
 					return false;
 				}
 				//校验密码
-				var password = document.getElementById("password").value;
+				var password = document.getElementById("shopowner_password").value;
 				if(password == null || password == '') {
 					msg4.innerHTML = "<font  color=red size=2>密码不能为空！</font>";
 					return false;
 				}
 			}
+			
 			//管理员登录表单验证
 			function checkForm3() {
 				//校验用户名
-				var username = document.getElementById("username").value;
+				var username = document.getElementById("admin_username").value;
 				if(username == null || username == '') {
 					msg5.innerHTML = "<font  color=red size=2>用户名不能为空！</font>";
 					return false;
 				}
 				//校验密码
-				var password = document.getElementById("password").value;
+				var password = document.getElementById("admin_password").value;
 				if(password == null || password == '') {
 					msg6.innerHTML = "<font  color=red size=2>密码不能为空！</font>";
 					return false;
@@ -118,15 +120,15 @@
 						</div>
 
 						<div class="am-tab-panel">
-							<form action="" method="post" onsubmit="return checkForm2();">
+							<form action="${pageContext.request.contextPath}/shopowner_signin.action" method="post" onsubmit="return checkForm2();">
 								<div class="user-name">
 									<label for="user"><i class="am-icon-user"></i></label> <input
-										type="text" name="" id="username" placeholder="用户名">
+										type="text" name="username" id="shopowner_username" placeholder="用户名">
 								</div>
 								<div id="msg3"></div>
 								<div class="user-pass">
 									<label for="password"><i class="am-icon-lock"></i></label> <input
-										type="password" name="" id="password" placeholder="请输入密码">
+										type="password" name="password" id="shopowner_password" placeholder="请输入密码">
 								</div>
 								<div id="msg4"></div>
 								<div class="login-links">
@@ -150,12 +152,12 @@
 							<form action="" method="post" onsubmit="return checkForm3();">
 								<div class="user-name">
 									<label for="user"><i class="am-icon-user"></i></label> <input
-										type="text" name="" id="username" placeholder="用户名">
+										type="text" name="" id="admin_username" placeholder="用户名">
 								</div>
 								<div id="msg5"></div>
 								<div class="user-pass">
 									<label for="password"><i class="am-icon-lock"></i></label> <input
-										type="password" name="" id="password" placeholder="请输入密码">
+										type="password" name="" id="admin_password" placeholder="请输入密码">
 								</div>
 								<div id="msg6"></div>
 								<div class="login-links">

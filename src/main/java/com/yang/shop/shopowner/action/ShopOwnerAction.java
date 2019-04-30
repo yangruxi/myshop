@@ -49,7 +49,6 @@ public class ShopOwnerAction extends ActionSupport implements ModelDriven<ShopOw
 		//调用Service进行查询
 		HttpServletRequest request = ServletActionContext.getRequest();
 		String name = request.getParameter("shop_owner_username");
-		System.out.println("test:"+name);
 		ShopOwner existShopOwner = shopOwnerService.findByName(name);
 		//获得response对象对页面进行输出
 		HttpServletResponse response = ServletActionContext.getResponse();
@@ -70,8 +69,22 @@ public class ShopOwnerAction extends ActionSupport implements ModelDriven<ShopOw
 	public String save() {
 		long ctime = System.currentTimeMillis();
 		shopOwner.setCtime(ctime);
-		System.out.println(shopOwner.getUsername());
 		shopOwnerService.save(shopOwner);
 		return NONE;
+	}
+	
+	//商家登录的方法
+	public String signin() {
+		System.out.println("test:商家登录方法");
+		ShopOwner existShopOwner = shopOwnerService.signin(shopOwner);
+		if(existShopOwner == null) {
+			//登录失败
+			this.addActionError("用户名或密码不正确！");
+			return LOGIN;
+		} else {
+			//登录成功
+			ServletActionContext.getRequest().getSession().setAttribute("existShopOwner", existShopOwner);
+			return "signinSuccess";
+		}
 	}
 }

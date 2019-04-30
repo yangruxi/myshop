@@ -40,5 +40,19 @@ public class ShopOwnerDao {
 		Session session = sessionFactory.getCurrentSession();
 		session.save(shopOwner);
 	}
+
+	//根据用户名和密码查询该商家用户是否存在
+	public ShopOwner signin(ShopOwner shopOwner) {
+		Session session = sessionFactory.getCurrentSession();
+		String hql = "FROM com.yang.shop.shopowner.vo.ShopOwner shopOwner WHERE username = ? AND password = ?";
+		Query query = session.createQuery(hql);
+		query.setParameter(0, shopOwner.getUsername());
+		query.setParameter(1, shopOwner.getPassword());
+		List<ShopOwner> list = query.list();
+		if(list != null && list.size() > 0) {
+			return list.get(0);
+		}
+		return null;
+	}
 	
 }

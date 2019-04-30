@@ -20,13 +20,18 @@ public class ShopOwnerService {
 		this.shopOwnerDao = shopOwnerDao;
 	}
 	
-	//商家登录的方法
+	//商家注册的方法
 	public void save(ShopOwner shopOwner) {
 		shopOwnerDao.save(shopOwner);
 	}
 
 	public ShopOwner findByName(String name) {
 		return shopOwnerDao.findByName(name);
+	}
+
+	//商家登录的方法
+	public ShopOwner signin(ShopOwner shopOwner) {
+		return shopOwnerDao.signin(shopOwner);
 	}
 	
 }
