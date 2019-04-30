@@ -22,14 +22,14 @@
 					<span>&nbsp;&nbsp;</span>|<span>&nbsp;&nbsp;</span>
 					<a href="#">我的店铺</a>
 					<span>&nbsp;&nbsp;</span>|<span>&nbsp;&nbsp;</span>
-					<a href="${pageContext.request.contextPath}/user_quit.action">退出登录</a>
+					<a href="${pageContext.request.contextPath}/shopowner_quit.action">退出登录</a>
 				</s:elseif>
 				<s:elseif test="#session.existAdmin != null">
 					<font color="#d26f73">超级管理员：<s:property value="#session.existAdmin.username"/></font>
 					<span>&nbsp;&nbsp;</span>|<span>&nbsp;&nbsp;</span>
 					<a href="#">管理员页面</a>
 					<span>&nbsp;&nbsp;</span>|<span>&nbsp;&nbsp;</span>
-					<a href="${pageContext.request.contextPath}/user_quit.action">退出登录</a>
+					<a href="${pageContext.request.contextPath}/admin_quit.action">退出登录</a>
 				</s:elseif>
 			</div>
 		</div>

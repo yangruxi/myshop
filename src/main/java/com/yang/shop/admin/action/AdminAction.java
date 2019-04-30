@@ -52,4 +52,11 @@ public class AdminAction extends ActionSupport implements ModelDriven<Admin>{
 			return "signinSuccess";
 		}
 	}
+	
+	//超级管理员退出登录
+	public String quit() {
+		//销毁session
+		ServletActionContext.getRequest().getSession().invalidate();
+		return "quit";
+	}
 }

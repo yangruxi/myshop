@@ -91,4 +91,11 @@ public class ShopOwnerAction extends ActionSupport implements ModelDriven<ShopOw
 			return "signinSuccess";
 		}
 	}
+	
+	//商家退出登录的方法
+	public String quit() {
+		//销毁session
+		ServletActionContext.getRequest().getSession().invalidate();
+		return "quit";
+	}
 }
