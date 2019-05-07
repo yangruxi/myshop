@@ -54,7 +54,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										<ul class="category-list" id="js_climit_li">
 											<li class="appliance js_toggle relative first">
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="${pageContext.request.contextPath}/images/t-shirt.png"></i><a class="ml-22" title="服饰">服饰</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${pageContext.request.contextPath}/images/t-shirt.png"></i><a class="ml-22"><s:property value="cList.get(0).firstCategoryName"/></a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -105,7 +105,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											</li>
 											<li class="appliance js_toggle relative">
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="${pageContext.request.contextPath}/images/hufu.png"></i><a class="ml-22" title="护肤">护肤</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${pageContext.request.contextPath}/images/hufu.png"></i><a class="ml-22"><s:property value="cList.get(1).firstCategoryName"/></a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -157,7 +157,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											</li>
 											<li class="appliance js_toggle relative">
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="${pageContext.request.contextPath}/images/makeup.png"></i><a class="ml-22" title="美妆">美妆</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${pageContext.request.contextPath}/images/makeup.png"></i><a class="ml-22"><s:property value="cList.get(2).firstCategoryName"/></a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -213,7 +213,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											</li>
 											<li class="appliance js_toggle relative">
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="${pageContext.request.contextPath}/images/gehu.png"></i><a class="ml-22" title="个护">个护</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${pageContext.request.contextPath}/images/gehu.png"></i><a class="ml-22"><s:property value="cList.get(3).firstCategoryName"/></a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -257,7 +257,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											</li>
 											<li class="appliance js_toggle relative">
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="${pageContext.request.contextPath}/images/riyong.png"></i><a class="ml-22" title="日用">日用</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${pageContext.request.contextPath}/images/riyong.png"></i><a class="ml-22"><s:property value="cList.get(4).firstCategoryName"/></a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -296,7 +296,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											</li>
 											<li class="appliance js_toggle relative">
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="${pageContext.request.contextPath}/images/shumachanpin.png"></i><a class="ml-22" title="数码产品">数码产品</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${pageContext.request.contextPath}/images/shumachanpin.png"></i><a class="ml-22"><s:property value="cList.get(5).firstCategoryName"/></a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -349,7 +349,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											</li>
 											<li class="appliance js_toggle relative">
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="${pageContext.request.contextPath}/images/dianqi.png"></i><a class="ml-22" title="电器">电器</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${pageContext.request.contextPath}/images/dianqi.png"></i><a class="ml-22"><s:property value="cList.get(6).firstCategoryName"/></a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -401,7 +401,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											</li>
 											<li class="appliance js_toggle relative">
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="${pageContext.request.contextPath}/images/bag.png"></i><a class="ml-22" title="箱包">箱包</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${pageContext.request.contextPath}/images/bag.png"></i><a class="ml-22"><s:property value="cList.get(7).firstCategoryName"/></a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -456,7 +456,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											</li>
 											<li class="appliance js_toggle relative">
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="${pageContext.request.contextPath}/images/lingshi.png"></i><a class="ml-22" title="食品">食品</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${pageContext.request.contextPath}/images/lingshi.png"></i><a class="ml-22"><s:property value="cList.get(8).firstCategoryName"/></a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -496,7 +496,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											</li>
 											<li class="appliance js_toggle relative last">
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="${pageContext.request.contextPath}/images/brand.png"></i><a class="ml-22" title="品牌">品牌</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${pageContext.request.contextPath}/images/brand.png"></i><a class="ml-22"><s:property value="cList.get(9).firstCategoryName"/></a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -615,37 +615,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 					<div class="am-g am-g-fixed recommendation">
 						<div class="clock am-u-sm-3" ">
-							
-							<p>今日推荐</p>
+							<p>今日热门商品</p>
 						</div>
-						<div class="am-u-sm-4 am-u-lg-3 ">
+						<s:iterator var="p" value="hList">
+							<div class="am-u-sm-4 am-u-lg-3 ">
 							<div class="info ">
-								<h3>真的有鱼</h3>
-								<h4>开年福利篇</h4>
+								<h2><s:property value="#p.goodName"/></h2>
+								<br/>
+								<h3>现价：¥<s:property value="#p.nowPrice"/></h3>
+								<h5>原价：¥<s><s:property value="#p.oldPrice"/></s></h5>
 							</div>
 							<div class="recommendationMain one">
-								<a href="introduction.html"><img src="${pageContext.request.contextPath}/images/tj.png "></img></a>
+								<a href="#"><img src="${pageContext.request.contextPath}/<s:property value="#p.goodPic"/> "></img></a>
 							</div>
 						</div>						
-						<div class="am-u-sm-4 am-u-lg-3 ">
-							<div class="info ">
-								<h3>囤货过冬</h3>
-								<h4>让爱早回家</h4>
-							</div>
-							<div class="recommendationMain two">
-								<img src="${pageContext.request.contextPath}/images/tj1.png "></img>
-							</div>
-						</div>
-						<div class="am-u-sm-4 am-u-lg-3 ">
-							<div class="info ">
-								<h3>浪漫情人节</h3>
-								<h4>甜甜蜜蜜</h4>
-							</div>
-							<div class="recommendationMain three">
-								<img src="${pageContext.request.contextPath}/images/tj2.png "></img>
-							</div>
-						</div>
-
+						</s:iterator>
 					</div>
 					<div class="clear "></div>
 					<!--热门活动 -->

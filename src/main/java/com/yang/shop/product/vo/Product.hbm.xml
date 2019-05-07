@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yang.shop.product.vo.Product" table="products">
+		<id name="goodId" column="good_id">
+			<generator class="native"/>
+		</id>
+		<property name="goodName" column="good_name"/>
+		<property name="oldPrice" column="old_price"/>
+		<property name="nowPrice" column="now_price"/>
+		<property name="goodPic" column="good_pic"/>
+		<property name="goodNum" column="good_num"/>
+		<property name="goodDesc" column="good_desc"/>
+		<property name="isHot" column="is_hot"/>
+		<property name="ctime" column="ctime"/>
+	</class>
+</hibernate-mapping>

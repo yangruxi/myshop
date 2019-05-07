@@ -72,7 +72,7 @@ a {
 
 
 .spatic{width:100%; height:16px;}
-h5{float: right;color: #666;padding-right:20px;}
+h5{float: left;color: #666;}
 
 input.add,input.min{width:15px}
 .last{border-right:none !important;}
