@@ -3,16 +3,14 @@
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="com.yang.shop.shopowner.vo.ShopOwner" table="shop_owners">
-		<id name="shopOwnerId" column="shop_owner_id">
+	<class name="com.yang.shop.area.vo.Area" table="areas">
+		<id name="areaId" column="area_id">
 			<generator class="native"/>
 		</id>
-		<property name="username" column="user_name"/>
-		<property name="password" column="password"/>
-		<property name="ctime" column="ctime"/>
-		<!-- 店家和店铺的关联 -->
+		<property name="areaName" column="area_name"/>
+		<!-- 区域与店铺的关联 -->
 		<set order-by="shop_id" name="shops" lazy="false" cascade="delete">
-			<key column="shop_owner_id"/>
+			<key column="area_id"/>
 			<one-to-many class="com.yang.shop.myshop.vo.MyShop"/>
 		</set>
 	</class>

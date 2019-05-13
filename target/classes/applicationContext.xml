@@ -45,7 +45,11 @@
 				<value>com/yang/shop/shopowner/vo/ShopOwner.hbm.xml</value>
 				<value>com/yang/shop/admin/vo/Admin.hbm.xml</value>
 				<value>com/yang/shop/category/vo/FirstCategory.hbm.xml</value>
+				<value>com/yang/shop/category/vo/SecondCategory.hbm.xml</value>
+				<value>com/yang/shop/category/vo/ThirdCategory.hbm.xml</value>
 				<value>com/yang/shop/product/vo/Product.hbm.xml</value>
+				<value>com/yang/shop/area/vo/Area.hbm.xml</value>
+				<value>com/yang/shop/myshop/vo/MyShop.hbm.xml</value>
 			</list>
 		</property>
 	</bean>

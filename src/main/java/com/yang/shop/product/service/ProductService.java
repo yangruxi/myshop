@@ -27,5 +27,21 @@ public class ProductService {
 	public List<Product> findHot() {
 		return productDao.findHot();
 	}
+
+	public List<Product> findByCategory1() {
+		return productDao.findByCategory1();
+	}
+
+	public List<Product> findByCategory2() {
+		return productDao.findByCategory2();
+	}
+
+	public List<Product> findByCategory3() {
+		return productDao.findByCategory3();
+	}
+
+	public List<Product> findByCategory4() {
+		return productDao.findByCategory4();
+	}
 	
 }

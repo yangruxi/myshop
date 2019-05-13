@@ -8,5 +8,15 @@
 			<generator class="native"/>
 		</id>
 		<property name="firstCategoryName" column="first_category_name"/>
+		<!-- 一级分类与二级分类的关联 -->
+		<set order-by="secondCategoryId" name="secondCategories" lazy="false" cascade="delete">
+			<key column="first_category_id"/>
+			<one-to-many class="com.yang.shop.category.vo.SecondCategory"/>
+		</set>
+		<!-- 一级分类与店铺的关联 -->
+		<set order-by="shopId" name="shops" lazy="false" cascade="delete">
+			<key column="first_category_id"/>
+			<one-to-many class="com.yang.shop.myshop.vo.MyShop"/>
+		</set>
 	</class>
 </hibernate-mapping>

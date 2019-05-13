@@ -1,5 +1,8 @@
 package com.yang.shop.product.vo;
 
+import com.yang.shop.category.vo.ThirdCategory;
+import com.yang.shop.myshop.vo.MyShop;
+
 /**
  * 商品模块的实体类
  * @author yangruxi
@@ -16,8 +19,9 @@ public class Product {
 	private Integer isHot;
 	private Long ctime;
 	//店铺ID的外键，使用店铺的对象
-	
+	private MyShop shop;
 	//三级分类ID的外键，使用三级分类的对象
+	private ThirdCategory thirdCategory;
 	
 	public Integer getGoodId() {
 		return goodId;
@@ -73,4 +77,17 @@ public class Product {
 	public void setCtime(Long ctime) {
 		this.ctime = ctime;
 	}
+	public ThirdCategory getThirdCategory() {
+		return thirdCategory;
+	}
+	public void setThirdCategory(ThirdCategory thirdCategory) {
+		this.thirdCategory = thirdCategory;
+	}
+	public MyShop getShop() {
+		return shop;
+	}
+	public void setShop(MyShop shop) {
+		this.shop = shop;
+	}
+	
 }

@@ -45,10 +45,28 @@ public class IndexAction extends ActionSupport{
 		ActionContext.getContext().getValueStack().set("cList", cList);
 		//将一级分类存入session
 		//ActionContext.getContext().getSession().put("cList", cList);
+		
 		//查询热门商品的集合
 		List<Product> hList = productService.findHot();
 		//将热门商品集合存入值栈
 		ActionContext.getContext().getValueStack().set("hList", hList);
+		
+		//查询第一个分类下的最新商品
+		List<Product> nList1 = productService.findByCategory1();
+		//将最新商品集合存入值栈
+		ActionContext.getContext().getValueStack().set("nList1", nList1);
+		//查询第二个分类下的最新商品
+		List<Product> nList2 = productService.findByCategory2();
+		//将最新商品集合存入值栈
+		ActionContext.getContext().getValueStack().set("nList2", nList2);
+		//查询第三个分类下的最新商品
+		List<Product> nList3 = productService.findByCategory3();
+		//将最新商品集合存入值栈
+		ActionContext.getContext().getValueStack().set("nList3", nList3);
+		//查询第四个分类下的最新商品
+		List<Product> nList4 = productService.findByCategory4();
+		//将最新商品集合存入值栈
+		ActionContext.getContext().getValueStack().set("nList4", nList4);
 		return "index";
 	}
 }

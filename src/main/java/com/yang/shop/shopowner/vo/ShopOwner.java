@@ -1,5 +1,10 @@
 package com.yang.shop.shopowner.vo;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import com.yang.shop.myshop.vo.MyShop;
+
 /**
  * 商家模块实体类
  * @author yangruxi
@@ -10,6 +15,9 @@ public class ShopOwner {
 	private String username;
 	private String password;
 	private Long ctime;
+	//存放店铺的集合
+	private Set<MyShop> shops= new HashSet<MyShop>();
+	
 	public Integer getShopOwnerId() {
 		return shopOwnerId;
 	}
@@ -33,6 +41,12 @@ public class ShopOwner {
 	}
 	public void setCtime(Long ctime) {
 		this.ctime = ctime;
+	}
+	public Set<MyShop> getShops() {
+		return shops;
+	}
+	public void setShops(Set<MyShop> shops) {
+		this.shops = shops;
 	}
 	
 }

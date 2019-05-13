@@ -15,5 +15,9 @@
 		<property name="goodDesc" column="good_desc"/>
 		<property name="isHot" column="is_hot"/>
 		<property name="ctime" column="ctime"/>
+		<!-- 商品和店铺的关联 -->
+		<many-to-one name="shop" column="shop_id" class="com.yang.shop.myshop.vo.MyShop" lazy="false"/>
+		<!-- 商品和三级分类的关联 -->
+		<many-to-one name="thirdCategory" column="third_category_id" class="com.yang.shop.category.vo.ThirdCategory" lazy="false"/>
 	</class>
 </hibernate-mapping>

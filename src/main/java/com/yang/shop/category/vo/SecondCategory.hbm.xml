@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yang.shop.category.vo.SecondCategory" table="second_categories">
+		<id name="secondCategoryId" column="second_category_id">
+			<generator class="native"/>
+		</id>
+		<property name="secondCategoryName" column="second_category_name"/>
+		<!-- 二级分类与一级分类的关联 -->
+		<many-to-one name="firstCategory" column="first_category_id" class="com.yang.shop.category.vo.FirstCategory" lazy="false"/>
+		<!-- 二级分类与三级分类的关联 -->
+		<set order-by="thirdCategoryId" name="thirdCategories" lazy="false" cascade="delete">
+			<key column="second_category_id"/>
+			<one-to-many class="com.yang.shop.category.vo.ThirdCategory"/>
+		</set>
+	</class>
+</hibernate-mapping>
