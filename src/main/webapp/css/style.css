@@ -42,6 +42,7 @@ ul.am-tabs-nav.am-nav.am-nav-tabs {width:100%;background:#fff;}
 /*商品详细页*/
 /*iteminfo*/
 .clearfixRight{font-size:12px;}
+.goodDesc{text-align: left; padding-left: 20px;}
 
 /*价格*/
 .tb-detail-price{text-align: center;}

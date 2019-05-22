@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yang.shop.product.vo.ProductDetail" table="product_details">
+		<id name="detailId" column="detail_id">
+			<generator class="native"/>
+		</id>
+		<property name="attributeName" column="attribute_name"/>
+		<property name="attribute1" column="attribute1"/>
+		<property name="attribute2" column="attribute2"/>
+		<property name="attribute3" column="attribute3"/>
+		<property name="attribute4" column="attribute4"/>
+		<property name="attribute5" column="attribute5"/>
+		<!-- 商品细节和商品的关联 -->
+		<many-to-one name="product" cascade="all" class="com.yang.shop.product.vo.Product" column="good_id"/>
+	</class>
+</hibernate-mapping>

@@ -6,6 +6,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.yang.shop.product.dao.ProductDao;
 import com.yang.shop.product.vo.Product;
+import com.yang.shop.product.vo.ProductDetail;
+import com.yang.shop.product.vo.ProductPic;
 
 /**
  * 商品模块的业务层代码
@@ -42,6 +44,18 @@ public class ProductService {
 
 	public List<Product> findByCategory4() {
 		return productDao.findByCategory4();
+	}
+
+	public Product findByPid(Integer goodId) {
+		return productDao.findByPid(goodId);
+	}
+
+	public ProductPic findPicByPid(Integer goodId) {
+		return productDao.findPicByPid(goodId);
+	}
+
+	public List<ProductDetail> findDetailBypid(Integer goodId) {
+		return productDao.findDetailBypid(goodId);
 	}
 	
 }

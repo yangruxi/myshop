@@ -1,5 +1,8 @@
 package com.yang.shop.product.vo;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import com.yang.shop.category.vo.ThirdCategory;
 import com.yang.shop.myshop.vo.MyShop;
 
@@ -22,6 +25,10 @@ public class Product {
 	private MyShop shop;
 	//三级分类ID的外键，使用三级分类的对象
 	private ThirdCategory thirdCategory;
+	//商品详情图片对象
+	private ProductPic productPic;
+	//存放商品细节的集合
+	private Set<ProductDetail> productDetails = new HashSet<ProductDetail>();
 	
 	public Integer getGoodId() {
 		return goodId;
@@ -88,6 +95,18 @@ public class Product {
 	}
 	public void setShop(MyShop shop) {
 		this.shop = shop;
+	}
+	public ProductPic getProductPic() {
+		return productPic;
+	}
+	public void setProductPic(ProductPic productPic) {
+		this.productPic = productPic;
+	}
+	public Set<ProductDetail> getProductDetails() {
+		return productDetails;
+	}
+	public void setProductDetails(Set<ProductDetail> productDetails) {
+		this.productDetails = productDetails;
 	}
 	
 }

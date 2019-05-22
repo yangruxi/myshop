@@ -36,7 +36,6 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 		this.userService = userService;
 	}
 	public User getModel() {
-		// TODO Auto-generated method stub
 		return user;
 	}
 	

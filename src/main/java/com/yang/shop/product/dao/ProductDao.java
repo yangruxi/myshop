@@ -11,6 +11,8 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 import com.yang.shop.product.vo.Product;
+import com.yang.shop.product.vo.ProductDetail;
+import com.yang.shop.product.vo.ProductPic;
 
 /**
  * 商品模块持久层代码
@@ -46,21 +48,6 @@ public class ProductDao {
 		return null;
 	}
 	
-	/**
-	 *  select * from first_categories f,second_categories s,third_categories t,products p where s.first_category_id=f.first_category_id and s.second_category_id=t.second_category_id and t.third_category_id = p.third_category_id;
-	 *  
-	 *  select * from first_categories f,second_categories s,third_categories t,products p 
-	 *	where s.first_category_id=f.first_category_id and s.second_category_id=t.second_category_id 
-	 *	and t.third_category_id = p.third_category_id;
-	 * @return
-	 */
-	//多表查询所有商品（一级分类、二级分类、三级分类、商品表）
-//	public List<Product> findFromFourTable() {
-//		Session session = sessionFactory.getCurrentSession();
-//		String hql = "FROM com.yang.shop.category.vo.FirstCategory f";
-//		return null;
-//	}
-
 	//查询第一个分类的最新商品，限制10个
 	public List<Product> findByCategory1() {
 		Session session = sessionFactory.getCurrentSession();
@@ -115,6 +102,47 @@ public class ProductDao {
 		//限制查询结果为8个
 		query.setMaxResults(8);
 		List<Product> list = query.list();
+		if(list != null && list.size() > 0) {
+			return list;
+		}
+		return null;
+	}
+
+	//根据商品ID查询商品
+	public Product findByPid(Integer goodId) {
+		//使用离线条件进行查询
+		DetachedCriteria dc = DetachedCriteria.forClass(Product.class);
+		dc.add(Restrictions.eq("goodId", goodId));
+		Session session = sessionFactory.getCurrentSession();
+		Criteria criteria = dc.getExecutableCriteria(session);
+		List<Product> list = criteria.list();
+		if(list != null && list.size() > 0) {
+			return list.get(0);
+		}
+		return null;
+	}
+
+	//根据商品ID查询商品详情图片
+	public ProductPic findPicByPid(Integer goodId) {
+		//使用离线条件查询
+		DetachedCriteria dc = DetachedCriteria.forClass(ProductPic.class);
+		dc.add(Restrictions.eq("product.goodId", goodId));
+		Session session = sessionFactory.getCurrentSession();
+		Criteria criteria = dc.getExecutableCriteria(session);
+		List<ProductPic> list = criteria.list();
+		if(list != null && list.size() > 0) {
+			return list.get(0);
+		}
+		return null;
+	}
+
+	public List<ProductDetail> findDetailBypid(Integer goodId) {
+		//使用离线条件查询
+		DetachedCriteria dc = DetachedCriteria.forClass(ProductDetail.class);
+		dc.add(Restrictions.eq("product.goodId", goodId));
+		Session session = sessionFactory.getCurrentSession();
+		Criteria criteria = dc.getExecutableCriteria(session);
+		List<ProductDetail> list = criteria.list();
 		if(list != null && list.size() > 0) {
 			return list;
 		}

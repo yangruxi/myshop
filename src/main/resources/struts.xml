@@ -38,5 +38,11 @@
 			<result name="quit" type="redirectAction">index</result>
 			<allowed-methods>signin,quit</allowed-methods>
 		</action>
+		
+		<!-- 商品模块的Action -->
+		<action name="product_*" class="productAction" method="{1}">
+			<result name="findByPid">/WEB-INF/jsp/product.jsp</result>
+			<allowed-methods>findByPid</allowed-methods>
+		</action>
 	</package>
 </struts>

@@ -624,16 +624,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</h2>
 							<br />
 							<h3>
-								现价：¥
-								<s:property value="#p.nowPrice" />
+								现价：¥<s:property value="#p.nowPrice" />
 							</h3>
 							<h5>
 								原价：¥<s><s:property value="#p.oldPrice" /></s>
 							</h5>
 						</div>
 						<div class="recommendationMain one">
-							<a href="#"><img
-								src="${pageContext.request.contextPath}/<s:property value="#p.goodPic"/> "></img></a>
+							<a href="${pageContext.request.contextPath }/product_findByPid.action?goodId=<s:property value="#p.goodId"/>"><img src="${pageContext.request.contextPath}/<s:property value="#p.goodPic"/> "></img></a>
 						</div>
 					</div>
 				</s:iterator>
@@ -719,7 +717,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="am-g am-g-fixed flood">
 					<s:iterator var="n1" value="nList1">
 						<div class="am-u-sm-6 am-u-md-3 text-five category-new-product">
-							<a href="# ">
+							<a href="${pageContext.request.contextPath }/product_findByPid.action?goodId=<s:property value="#n1.goodId"/>">
 								<div class="product-img img">
 									<img class="product-img"
 										src="${pageContext.request.contextPath}/<s:property value="#n1.goodPic"/>" />
@@ -756,7 +754,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="am-g am-g-fixed flood">
 					<s:iterator var="n2" value="nList2">
 						<div class="am-u-sm-6 am-u-md-3 text-five category-new-product">
-							<a href="# ">
+							<a href="${pageContext.request.contextPath }/product_findByPid.action?goodId=<s:property value="#n2.goodId"/>"">
 								<div class="product-img img">
 									<img class="product-img"
 										src="${pageContext.request.contextPath}/<s:property value="#n2.goodPic"/>" />
@@ -793,7 +791,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="am-g am-g-fixed flood">
 					<s:iterator var="n3" value="nList3">
 						<div class="am-u-sm-6 am-u-md-3 text-five category-new-product">
-							<a href="# ">
+							<a href="${pageContext.request.contextPath }/product_findByPid.action?goodId=<s:property value="#n3.goodId"/>"">
 								<div class="product-img img">
 									<img class="product-img"
 										src="${pageContext.request.contextPath}/<s:property value="#n3.goodPic"/>" />
@@ -830,7 +828,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="am-g am-g-fixed flood">
 					<s:iterator var="n4" value="nList4">
 						<div class="am-u-sm-6 am-u-md-3 text-five category-new-product">
-							<a href="# ">
+							<a
+								href="${pageContext.request.contextPath }/product_findByPid.action?goodId=<s:property value="#n4.goodId"/>"">
 								<div class="product-img img">
 									<img class="product-img"
 										src="${pageContext.request.contextPath}/<s:property value="#n4.goodPic"/>" />
@@ -849,6 +848,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</s:iterator>
 				</div>
 				<div class="clear "></div>
+				<div class="footer ">
+						<div class="footer-hd ">
+							<p>
+								<a href="# ">XIXI科技</a>
+								<b>|</b>
+								<a href="# ">商城首页</a>
+								<b>|</b>
+								<a href="# ">支付宝</a>
+								<b>|</b>
+								<a href="# ">物流</a>
+							</p>
+						</div>
+						<div class="footer-bd ">
+							<p>
+								<a href="# ">关于XIXI</a>
+								<a href="# ">合作伙伴</a>
+								<a href="# ">联系我们</a>
+								<a href="# ">网站地图</a>
+								<em>© 2015-2025 Xixi.com 版权所有</em>
+							</p>
+						</div>
+					</div>
 			</div>
 		<!--引导 -->
 		<div class="navCir">
