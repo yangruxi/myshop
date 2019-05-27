@@ -172,9 +172,7 @@
 											<form class="theme-signin" name="loginform" action="" method="post">
 
 												<div class="theme-signin-left">
-
-													
-													<s:iterator var="d" value="dList">
+													<s:iterator var="d" value="product.productDetails">
 														<div class="theme-options">
 															<div class="cart-title"><s:property value="#d.attributeName"/></div>
 															<ul>
@@ -186,6 +184,7 @@
 															</ul>
 														</div>
 													</s:iterator>
+													
 													<div class="theme-options">
 														<div class="cart-title number">数量</div>
 														<dd>
