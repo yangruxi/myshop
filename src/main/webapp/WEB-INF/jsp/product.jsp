@@ -362,11 +362,9 @@
 											<h4>商品细节：</h4>
 										</div>
 										<div class="twlistNews">
-											<img alt="商品细节图片" src="${pageContext.request.contextPath}/<s:property value="productPics.pic1"/>">
-											<img alt="商品细节图片" src="${pageContext.request.contextPath}/<s:property value="productPics.pic2"/>">
-											<img alt="商品细节图片" src="${pageContext.request.contextPath}/<s:property value="productPics.pic3"/>">
-											<img alt="商品细节图片" src="${pageContext.request.contextPath}/<s:property value="productPics.pic4"/>">
-											<img alt="商品细节图片" src="${pageContext.request.contextPath}/<s:property value="productPics.pic5"/>">
+											<s:iterator var="p" value="product.productPics">
+												<img alt="商品细节图片" src="${pageContext.request.contextPath}/<s:property value="#p.pic"/>">
+											</s:iterator>
 										</div>
 									</div>
 									<div class="clear"></div>

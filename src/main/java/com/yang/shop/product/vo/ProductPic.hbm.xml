@@ -7,11 +7,7 @@
 		<id name="picId" column="pic_id">
 			<generator class="native"/>
 		</id>
-		<property name="pic1" column="pic1"/>
-		<property name="pic2" column="pic2"/>
-		<property name="pic3" column="pic3"/>
-		<property name="pic4" column="pic4"/>
-		<property name="pic5" column="pic5"/>
+		<property name="pic" column="pic"/>
 		<!-- 详情图片和商品的关联 -->
 		<many-to-one name="product" cascade="all" class="com.yang.shop.product.vo.Product" column="good_id" unique="true"/>
 	</class>

@@ -80,9 +80,9 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 		product = productService.findByPid(product.getGoodId());
 		
 		//通过商品详情图片表查询商品详情图片
-		ProductPic productPics = productService.findPicByPid(product.getGoodId());
+		//ProductPic productPics = productService.findPicByPid(product.getGoodId());
 		//将商品详情图片结果存入值栈
-		ActionContext.getContext().getValueStack().set("productPics", productPics);
+		//ActionContext.getContext().getValueStack().set("productPics", productPics);
 		
 		//通过商品细节表查询商品细节
 		List<ProductDetail> dList = productService.findDetailBypid(product.getGoodId());

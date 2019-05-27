@@ -25,8 +25,8 @@ public class Product {
 	private MyShop shop;
 	//三级分类ID的外键，使用三级分类的对象
 	private ThirdCategory thirdCategory;
-	//商品详情图片对象
-	private ProductPic productPic;
+	//存放商品详情图片的集合
+	private Set<ProductPic> productPics = new HashSet<ProductPic>();
 	//存放商品细节的集合
 	private Set<ProductDetail> productDetails = new HashSet<ProductDetail>();
 	
@@ -96,11 +96,11 @@ public class Product {
 	public void setShop(MyShop shop) {
 		this.shop = shop;
 	}
-	public ProductPic getProductPic() {
-		return productPic;
+	public Set<ProductPic> getProductPics() {
+		return productPics;
 	}
-	public void setProductPic(ProductPic productPic) {
-		this.productPic = productPic;
+	public void setProductPics(Set<ProductPic> productPics) {
+		this.productPics = productPics;
 	}
 	public Set<ProductDetail> getProductDetails() {
 		return productDetails;

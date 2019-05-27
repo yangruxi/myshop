@@ -52,10 +52,6 @@
 					id="J_MiniCartNum" class="h">0</strong></a>
 			</div>
 		</div>
-		<div class="topMessage favorite">
-			<div class="menu-hd">
-				<a href="#" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a>
-			</div>
 	</ul>
 </div>
 

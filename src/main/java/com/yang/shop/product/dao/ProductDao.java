@@ -138,7 +138,8 @@ public class ProductDao {
 		}
 		return null;
 	}
-
+	
+	//根据商品ID查询商品细节（尺码、规格等等）
 	public List<ProductDetail> findDetailBypid(Integer goodId) {
 		//使用离线条件查询
 		DetachedCriteria dc = DetachedCriteria.forClass(ProductDetail.class);
