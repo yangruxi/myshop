@@ -143,6 +143,8 @@
 	</bean>
 	<!-- 商品模块的Action -->
 	<bean id="productAction" class="com.yang.shop.product.action.ProductAction">
+		<!-- 注入一级分类的Service -->
+		<property name="firstCategoryService" ref="firstCategoryService"></property>
 		<!-- 注入Service -->
 		<property name="productService" ref="productService"></property>
 	</bean>

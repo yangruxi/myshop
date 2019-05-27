@@ -30,4 +30,8 @@ public class FirstCategoryService {
 		return firstCategoryDao.findAll();
 	}
 	
+	//根据一级分类ID查询该一级分类信息
+	public FirstCategory findByFirstCategoryId(Integer firstCategoryId) {
+		return firstCategoryDao.findByFirstCategoryId(firstCategoryId);
+	}
 }

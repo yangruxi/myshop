@@ -35,6 +35,19 @@ public class FirstCategoryDao {
 		}
 		return null;
 	}
+
+	//根据一级分类ID查询该一级分类的信息
+	public FirstCategory findByFirstCategoryId(Integer firstCategoryId) {
+		Session session = sessionFactory.getCurrentSession();
+		String hql = "FROM com.yang.shop.category.vo.FirstCategory f WHERE f.firstCategoryId = ?";
+		Query query = session.createQuery(hql);
+		query.setParameter(0, firstCategoryId);
+		List<FirstCategory> list = query.list();
+		if(list != null && list.size() > 0) {
+			return list.get(0);
+		}
+		return null;
+	}
 	
 	
 }

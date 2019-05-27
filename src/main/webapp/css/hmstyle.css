@@ -431,11 +431,11 @@ top: 11px;text-align: right;}
 .sort-side dd { float:left; margin: 2px 6px 4px 0;}
 .sort-side dd a{ float:left; width: auto; letter-spacing:0.5px;  line-height: 14px;  color:#888; white-space:nowrap; overflow: hidden; text-overflow:ellipsis; padding: 3px 10px; border:1px solid #e6e6e6; }
 .sort-side dd a span.red{ color:#DB3E54; }
-.menu-srot .brand-side{ float: left; position: relative;margin-left: -10px; padding-top: 10px; }
+.menu-srot .brand-side{ float: left;position: relative;margin-left: -10px; padding-top: 10px;}
 .brand-side {margin-top: 50px; border-top: 1px solid #eae9e9;}
 .brand-side .dl-sort{overflow: hidden; height: 70px;}
 .brand-side dt { position: absolute; top: -22px; padding:0 10px; font-size: 14px; font-weight: bold;}
-.brand-side dd { float: left; padding: 5px 0; }
+.brand-side dd { float:left; padding: 5px 0; }
 .brand-side dd a{ display: block; padding: 0 10px; line-height: 1; border-right: 1px solid #bcbcbc; color: #888; }
 .brand-side dd a.more{color: #b6b6b6;}
 

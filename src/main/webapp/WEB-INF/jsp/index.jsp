@@ -55,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											<s:iterator var="f" value="cList">
 												<li class="appliance js_toggle relative">
 													<div class="category-info">
-														<h3 class="category-name b-category-name"><i><img src="${pageContext.request.contextPath}/images/flower.png"></i><a href="${pageContext.request.contextPath}/product_findByFirstCategoryId.action?firstCategoryId=<s:property value="#f.firstCategoryId"/>" class="ml-22"><s:property value="#f.firstCategoryName"/></a></h3>
+														<h3 class="category-name b-category-name"><i><img src="${pageContext.request.contextPath}/images/flower.png"></i><a href="${pageContext.request.contextPath}/product_findByFirstCategoryId.action?firstCategoryId=<s:property value="#f.firstCategoryId"/>&page=1" class="ml-22"><s:property value="#f.firstCategoryName"/></a></h3>
 														<em>&gt;</em></div>
 														<div class="menu-item menu-in top">
 														<div class="area-in">
@@ -157,7 +157,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			<div class="shopMainbg">
 		<div class="shopMain" id="shopmain">
-
+    	
 			<!--今日推荐 -->
 
 			<div class="am-g am-g-fixed recommendation">
@@ -247,7 +247,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 			</div>
 			<div class="clear "></div>
-
 
 			<div id="f1">
 				<!-- 第一个分类 -->

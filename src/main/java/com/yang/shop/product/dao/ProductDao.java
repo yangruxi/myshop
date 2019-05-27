@@ -1,8 +1,10 @@
 package com.yang.shop.product.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -13,6 +15,7 @@ import org.hibernate.criterion.Restrictions;
 import com.yang.shop.product.vo.Product;
 import com.yang.shop.product.vo.ProductDetail;
 import com.yang.shop.product.vo.ProductPic;
+import com.yang.shop.utils.PageHibernateCallback;
 
 /**
  * 商品模块持久层代码
@@ -52,7 +55,7 @@ public class ProductDao {
 	public List<Product> findByCategory1() {
 		Session session = sessionFactory.getCurrentSession();
 		//多表查询，按照ctime倒序
-		String hql = "FROM com.yang.shop.product.vo.Product p WHERE p.thirdCategory.thirdCategoryId IN (SELECT t.thirdCategoryId FROM com.yang.shop.category.vo.ThirdCategory t WHERE t.secondCategory.secondCategoryId IN (SELECT s.secondCategoryId FROM com.yang.shop.category.vo.SecondCategory s WHERE s.firstCategory.firstCategoryId=1)) ORDER BY p.ctime DESC";
+		String hql = "FROM com.yang.shop.product.vo.Product p WHERE p.thirdCategory.secondCategory.firstCategory.firstCategoryId = 1 ORDER BY p.ctime DESC";
 		Query query = session.createQuery(hql);
 		//限制查询结果为8个
 		query.setMaxResults(8);
@@ -67,7 +70,7 @@ public class ProductDao {
 	public List<Product> findByCategory2() {
 		Session session = sessionFactory.getCurrentSession();
 		//多表查询，按照ctime倒序
-		String hql = "FROM com.yang.shop.product.vo.Product p WHERE p.thirdCategory.thirdCategoryId IN (SELECT t.thirdCategoryId FROM com.yang.shop.category.vo.ThirdCategory t WHERE t.secondCategory.secondCategoryId IN (SELECT s.secondCategoryId FROM com.yang.shop.category.vo.SecondCategory s WHERE s.firstCategory.firstCategoryId=2)) ORDER BY p.ctime DESC";
+		String hql = "FROM com.yang.shop.product.vo.Product p WHERE p.thirdCategory.secondCategory.firstCategory.firstCategoryId = 2 ORDER BY p.ctime DESC";
 		Query query = session.createQuery(hql);
 		//限制查询结果为8个
 		query.setMaxResults(8);
@@ -82,7 +85,7 @@ public class ProductDao {
 	public List<Product> findByCategory3() {
 		Session session = sessionFactory.getCurrentSession();
 		//多表查询，按照ctime倒序
-		String hql = "FROM com.yang.shop.product.vo.Product p WHERE p.thirdCategory.thirdCategoryId IN (SELECT t.thirdCategoryId FROM com.yang.shop.category.vo.ThirdCategory t WHERE t.secondCategory.secondCategoryId IN (SELECT s.secondCategoryId FROM com.yang.shop.category.vo.SecondCategory s WHERE s.firstCategory.firstCategoryId=3)) ORDER BY p.ctime DESC";
+		String hql = "FROM com.yang.shop.product.vo.Product p WHERE p.thirdCategory.secondCategory.firstCategory.firstCategoryId = 3 ORDER BY p.ctime DESC";
 		Query query = session.createQuery(hql);
 		//限制查询结果为8个
 		query.setMaxResults(8);
@@ -97,7 +100,7 @@ public class ProductDao {
 	public List<Product> findByCategory4() {
 		Session session = sessionFactory.getCurrentSession();
 		//多表查询，按照ctime倒序
-		String hql = "FROM com.yang.shop.product.vo.Product p WHERE p.thirdCategory.thirdCategoryId IN (SELECT t.thirdCategoryId FROM com.yang.shop.category.vo.ThirdCategory t WHERE t.secondCategory.secondCategoryId IN (SELECT s.secondCategoryId FROM com.yang.shop.category.vo.SecondCategory s WHERE s.firstCategory.firstCategoryId=4)) ORDER BY p.ctime DESC";
+		String hql = "FROM com.yang.shop.product.vo.Product p WHERE p.thirdCategory.secondCategory.firstCategory.firstCategoryId = 4 ORDER BY p.ctime DESC";
 		Query query = session.createQuery(hql);
 		//限制查询结果为8个
 		query.setMaxResults(8);
@@ -143,6 +146,31 @@ public class ProductDao {
 		Session session = sessionFactory.getCurrentSession();
 		Criteria criteria = dc.getExecutableCriteria(session);
 		List<ProductDetail> list = criteria.list();
+		if(list != null && list.size() > 0) {
+			return list;
+		}
+		return null;
+	}
+
+	//根据一级分类的ID查询商品个数
+	public int findTotalCountByFCid(Integer firstCategoryId) {
+		Session session = sessionFactory.getCurrentSession();
+		String hql = "SELECT count(*) FROM com.yang.shop.product.vo.Product p WHERE p.thirdCategory.secondCategory.firstCategory.firstCategoryId = ?";
+		Query query = session.createQuery(hql);
+		query.setParameter(0, firstCategoryId);
+		List<Long> list = query.list();
+		if (list != null & list.size() > 0) {
+			return list.get(0).intValue();
+		}
+		return 0;
+	}
+
+	//根据一级分类ID查询商品的集合
+	public List<Product> findByPageFCid(Integer firstCategoryId, int begin, int limit) throws Exception {
+		Session session = sessionFactory.getCurrentSession();
+		String hql = "SELECT p FROM com.yang.shop.product.vo.Product p JOIN p.thirdCategory t JOIN t.secondCategory s JOIN s.firstCategory f WHERE f.firstCategoryId = ?";
+		PageHibernateCallback<Product> pageHibernateCallback = new PageHibernateCallback<Product>(hql, new Object[]{firstCategoryId}, begin, limit);
+		List<Product> list = pageHibernateCallback.doInHibernate(session);
 		if(list != null && list.size() > 0) {
 			return list;
 		}

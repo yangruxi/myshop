@@ -68,6 +68,7 @@ dl#select3 .dd-conent{ left:-200%; right:0px;}
 .theme-popover{width: 100%;}
  
 /*搜索结果*/
+.pic{max-width: 280px; height: 280px;}
 .i-pic.limit {margin:5px;border: 1px #e8e8e8 solid;overflow: hidden;position: relative;cursor: pointer;}
 .number.fl{position: absolute;bottom:5px;right:5px ;}
 .price.fl{padding: 5px;}
@@ -77,7 +78,6 @@ dl#select3 .dd-conent{ left:-200%; right:0px;}
 
 .search-side{display: none;}
 .search-content{margin:0px 5px ;}
-
 
 .limit p.title,.i-pic.check p.title{padding:0px 5px;margin:5px 0px;overflow:hidden;height:18px;line-height:18px ;}
 
@@ -89,10 +89,9 @@ dl#select3 .dd-conent{ left:-200%; right:0px;}
 
 /* select */
 .select-list .dd-conent dd{width:auto;text-align: center;margin-left:5px;}
-
 .select li.select-result{display: none;}
 .suggest,.searchAbout,ul.pagination{ display:block;}
-.select .title.font-normal{margin-top:0px;margin-left:0px}
+.select .title.font-normal{margin-top:5px;margin-left:34px;}
 .select,.sort{padding:5px 10px;box-shadow: 0px 0px 2px #999;margin-top:5px;background: #fff;}
 .searchAbout{padding:10px;}
 
@@ -156,8 +155,8 @@ span.am-icon-th-list{color:orangered;margin-right:1px ;}
 @media only screen and (min-width:1260px) {
 .am-g-fixed {max-width: 1200px; }
 .search-list{max-width: 1200px;margin:0px auto ;position: relative;}
-.search-content{float: left;width:80%;}
-.search-side{display: block;float: left;width:20%;padding:0px 10px ;}
+.search-content{float: left;width:auto;}
+
 .side-title{height: 35px;line-height: 35px;padding: 0px 20px;border-radius: 0px 0px 4px 4px;margin: 10px 0px;box-shadow: 0px 0px 2px #999;text-align: center ;color: #e4393c;font-size:14px ;background:#fff;}
 .search-side li{width: 100%;overflow: hidden;}
 .i-pic.check{border:1px solid #ddd ;margin:10px auto;overflow: hidden;cursor: pointer;background:#fff ;position: relative;}
