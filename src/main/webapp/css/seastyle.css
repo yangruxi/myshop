@@ -68,10 +68,10 @@ dl#select3 .dd-conent{ left:-200%; right:0px;}
 .theme-popover{width: 100%;}
  
 /*搜索结果*/
-.pic{max-width: 280px; height: 280px;}
-.i-pic.limit {margin:5px;border: 1px #e8e8e8 solid;overflow: hidden;position: relative;cursor: pointer;}
-.number.fl{position: absolute;bottom:5px;right:5px ;}
-.price.fl{padding: 5px;}
+.pic{width: 280px; height: 210px;}
+.i-pic.limit {width: 280px; height: 280px; margin:5px;border: 1px #e8e8e8 solid;overflow: hidden;position: relative;cursor: pointer;}
+.number.fl{position: absolute;bottom:5px;right:15px ;}
+.price.fl{position: absolute;left:15px; bottom:5px ; }
 /*分页*/	
 .am-pagination li{ float:none;}
 .footer {margin-left: 0px;}
