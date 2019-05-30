@@ -172,7 +172,7 @@
 											<form class="theme-signin" name="loginform" action="" method="post">
 
 												<div class="theme-signin-left">
-													<s:iterator var="d" value="product.productDetails">
+													<s:iterator var="d" value="model.productDetails">
 														<div class="theme-options">
 															<div class="cart-title"><s:property value="#d.attributeName"/></div>
 															<ul>
@@ -361,7 +361,7 @@
 											<h4>商品细节：</h4>
 										</div>
 										<div class="twlistNews">
-											<s:iterator var="p" value="product.productPics">
+											<s:iterator var="p" value="model.productPics">
 												<img alt="商品细节图片" src="${pageContext.request.contextPath}/<s:property value="#p.pic"/>">
 											</s:iterator>
 										</div>

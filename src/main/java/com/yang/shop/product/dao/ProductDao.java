@@ -125,33 +125,37 @@ public class ProductDao {
 		return null;
 	}
 
+	/**
+	 * 使用商品和商品详情图片、商品细节表之间的关联查询来做，这两个方法暂时用不上
+	 * @return
+	 */
 	//根据商品ID查询商品详情图片
-	public ProductPic findPicByPid(Integer goodId) {
-		//使用离线条件查询
-		DetachedCriteria dc = DetachedCriteria.forClass(ProductPic.class);
-		dc.add(Restrictions.eq("product.goodId", goodId));
-		Session session = sessionFactory.getCurrentSession();
-		Criteria criteria = dc.getExecutableCriteria(session);
-		List<ProductPic> list = criteria.list();
-		if(list != null && list.size() > 0) {
-			return list.get(0);
-		}
-		return null;
-	}
+//	public ProductPic findPicByPid(Integer goodId) {
+//		//使用离线条件查询
+//		DetachedCriteria dc = DetachedCriteria.forClass(ProductPic.class);
+//		dc.add(Restrictions.eq("product.goodId", goodId));
+//		Session session = sessionFactory.getCurrentSession();
+//		Criteria criteria = dc.getExecutableCriteria(session);
+//		List<ProductPic> list = criteria.list();
+//		if(list != null && list.size() > 0) {
+//			return list.get(0);
+//		}
+//		return null;
+//	}
 	
 	//根据商品ID查询商品细节（尺码、规格等等）
-	public List<ProductDetail> findDetailBypid(Integer goodId) {
-		//使用离线条件查询
-		DetachedCriteria dc = DetachedCriteria.forClass(ProductDetail.class);
-		dc.add(Restrictions.eq("product.goodId", goodId));
-		Session session = sessionFactory.getCurrentSession();
-		Criteria criteria = dc.getExecutableCriteria(session);
-		List<ProductDetail> list = criteria.list();
-		if(list != null && list.size() > 0) {
-			return list;
-		}
-		return null;
-	}
+//	public List<ProductDetail> findDetailBypid(Integer goodId) {
+//		//使用离线条件查询
+//		DetachedCriteria dc = DetachedCriteria.forClass(ProductDetail.class);
+//		dc.add(Restrictions.eq("product.goodId", goodId));
+//		Session session = sessionFactory.getCurrentSession();
+//		Criteria criteria = dc.getExecutableCriteria(session);
+//		List<ProductDetail> list = criteria.list();
+//		if(list != null && list.size() > 0) {
+//			return list;
+//		}
+//		return null;
+//	}
 
 	//根据一级分类的ID查询商品个数
 	public int findTotalCountByFCid(Integer firstCategoryId) {
@@ -177,4 +181,5 @@ public class ProductDao {
 		}
 		return null;
 	}
+
 }

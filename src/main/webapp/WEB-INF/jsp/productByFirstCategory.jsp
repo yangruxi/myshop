@@ -78,6 +78,7 @@
 					<s:iterator var="p" value="pageBean.list">
 						<li>
 							<div class="i-pic limit">
+								<a href="${pageContext.request.contextPath}/product_findByPid.action?goodId=<s:property value="#p.goodId"/>">
 								<img class="pic" src="${pageContext.request.contextPath}/<s:property value="#p.goodPic"/>" />											
 								<p class="title fl"><s:property value="#p.goodName"/></p>
 								<p class="price fl">
@@ -87,6 +88,7 @@
 								<p class="number fl">
 									销量<span>1110</span>
 								</p>
+								</a>
 							</div>
 						</li>
 					</s:iterator>

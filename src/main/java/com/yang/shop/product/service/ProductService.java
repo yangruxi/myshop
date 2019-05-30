@@ -51,13 +51,13 @@ public class ProductService {
 		return productDao.findByPid(goodId);
 	}
 
-	public ProductPic findPicByPid(Integer goodId) {
-		return productDao.findPicByPid(goodId);
-	}
+//	public ProductPic findPicByPid(Integer goodId) {
+//		return productDao.findPicByPid(goodId);
+//	}
 
-	public List<ProductDetail> findDetailBypid(Integer goodId) {
-		return productDao.findDetailBypid(goodId);
-	}
+//	public List<ProductDetail> findDetailBypid(Integer goodId) {
+//		return productDao.findDetailBypid(goodId);
+//	}
 
 	//根据一级分类的ID查询商品，带分页
 	public PageBean<Product> findByPageFCid(Integer firstCategoryId, int page) throws Exception {

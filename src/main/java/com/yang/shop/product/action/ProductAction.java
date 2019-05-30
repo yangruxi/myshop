@@ -85,9 +85,9 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 		//ActionContext.getContext().getValueStack().set("productPics", productPics);
 		
 		//通过商品细节表查询商品细节
-		List<ProductDetail> dList = productService.findDetailBypid(product.getGoodId());
-		//将商品细节存入值栈
-		ActionContext.getContext().getValueStack().set("dList", dList);
+//		List<ProductDetail> dList = productService.findDetailBypid(product.getGoodId());
+//		//将商品细节存入值栈
+//		ActionContext.getContext().getValueStack().set("dList", dList);
 		return "findByPid";
 	}
 	
