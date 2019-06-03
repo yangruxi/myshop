@@ -182,4 +182,31 @@ public class ProductDao {
 		return null;
 	}
 
+	//根据二级分类ID查询商品个数
+	public int findTotalCountBySCid(Integer secondCategoryId) {
+		Session session = sessionFactory.getCurrentSession();
+		String hql = "SELECT count(*) FROM com.yang.shop.product.vo.Product p WHERE p.thirdCategory.secondCategory.secondCategoryId = ?";
+		System.out.println("testhql");
+		Query query = session.createQuery(hql);
+		query.setParameter(0, secondCategoryId);
+		List<Long> list = query.list();
+		System.out.println(list.get(0).intValue());
+		if (list != null & list.size() > 0) {
+			return list.get(0).intValue();
+		}
+		return 0;
+	}
+
+	//根据二级分类ID查询商品
+	public List<Product> findByPageSCid(Integer secondCategoryId, int begin, int limit) throws Exception {
+		Session session = sessionFactory.getCurrentSession();
+		String hql = "SELECT p FROM com.yang.shop.product.vo.Product p JOIN p.thirdCategory t JOIN t.secondCategory s WHERE s.secondCategoryId = ?";
+		PageHibernateCallback<Product> pageHibernateCallback = new PageHibernateCallback<Product>(hql, new Object[]{secondCategoryId}, begin, limit);
+		List<Product> list = pageHibernateCallback.doInHibernate(session);
+		if(list != null && list.size() > 0) {
+			return list;
+		}
+		return null;
+	}
+
 }

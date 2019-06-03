@@ -81,6 +81,10 @@
 	<bean id="firstCategoryDao" class="com.yang.shop.category.dao.FirstCategoryDao">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	<!-- 二级分类的Dao -->
+	<bean id="secondCategoryDao" class="com.yang.shop.category.dao.SecondCategoryDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 	<!-- 商品模块的Dao -->
 	<bean id="productDao" class="com.yang.shop.product.dao.ProductDao">
 		<property name="sessionFactory" ref="sessionFactory"></property>
@@ -106,6 +110,11 @@
 	<bean id="firstCategoryService" class="com.yang.shop.category.service.FirstCategoryService">
 		<!-- 注入Dao -->
 		<property name="firstCategoryDao" ref="firstCategoryDao"></property>
+	</bean>
+	<!-- 二级分类的Service -->
+	<bean id="secondCategoryService" class="com.yang.shop.category.service.SecondCategoryService">
+		<!-- 注入Dao -->
+		<property name="secondCategoryDao" ref="secondCategoryDao"></property>
 	</bean>
 	<!-- 商品模块的Service -->
 	<bean id="productService" class="com.yang.shop.product.service.ProductService">
@@ -145,7 +154,9 @@
 	<bean id="productAction" class="com.yang.shop.product.action.ProductAction">
 		<!-- 注入一级分类的Service -->
 		<property name="firstCategoryService" ref="firstCategoryService"></property>
-		<!-- 注入Service -->
+		<!-- 注入二级分类的Service -->
+		<property name="secondCategoryService" ref="secondCategoryService"></property>
+		<!-- 注入商品模块的Service -->
 		<property name="productService" ref="productService"></property>
 	</bean>
 </beans>

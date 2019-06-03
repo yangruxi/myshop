@@ -63,7 +63,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 																	<div class="sort-side ">
 																		<s:iterator var="sec" value="#f.secondCategories">
 																			<dl class="dl-sort">
-																				<dt><a href="#"><span><s:property value="#sec.secondCategoryName"/></span></a></dt>
+																				<dt><a href="${pageContext.request.contextPath}/product_findBySecondCategoryId.action?secondCategoryId=<s:property value="#sec.secondCategoryId"/>&page=1"><span><s:property value="#sec.secondCategoryName"/></span></a></dt>
 																				<s:iterator var="t" value="#sec.thirdCategories">
 																					<dd><a href="#"><span><s:property value="#t.thirdCategoryName"/></span></a></dd>
 																				</s:iterator>

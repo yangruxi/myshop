@@ -43,7 +43,8 @@
 		<action name="product_*" class="productAction" method="{1}">
 			<result name="findByPid">/WEB-INF/jsp/product.jsp</result>
 			<result name="findByFirstCategoryId">/WEB-INF/jsp/productByFirstCategory.jsp</result>
-			<allowed-methods>findByPid,findByFirstCategoryId</allowed-methods>
+			<result name="findBySecondCategoryId">/WEB-INF/jsp/productBySecondCategory.jsp</result>
+			<allowed-methods>findByPid,findByFirstCategoryId,findBySecondCategoryId</allowed-methods>
 		</action>
 	</package>
 </struts>
