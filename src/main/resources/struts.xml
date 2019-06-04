@@ -44,7 +44,8 @@
 			<result name="findByPid">/WEB-INF/jsp/product.jsp</result>
 			<result name="findByFirstCategoryId">/WEB-INF/jsp/productByFirstCategory.jsp</result>
 			<result name="findBySecondCategoryId">/WEB-INF/jsp/productBySecondCategory.jsp</result>
-			<allowed-methods>findByPid,findByFirstCategoryId,findBySecondCategoryId</allowed-methods>
+			<result name="findByThirdCategoryId">/WEB-INF/jsp/productByThirdCategory.jsp</result>
+			<allowed-methods>findByPid,findByFirstCategoryId,findBySecondCategoryId,findByThirdCategoryId</allowed-methods>
 		</action>
 	</package>
 </struts>

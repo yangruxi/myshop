@@ -7,8 +7,10 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.yang.shop.category.service.FirstCategoryService;
 import com.yang.shop.category.service.SecondCategoryService;
+import com.yang.shop.category.service.ThirdCategoryService;
 import com.yang.shop.category.vo.FirstCategory;
 import com.yang.shop.category.vo.SecondCategory;
+import com.yang.shop.category.vo.ThirdCategory;
 import com.yang.shop.product.service.ProductService;
 import com.yang.shop.product.vo.Product;
 import com.yang.shop.product.vo.ProductDetail;
@@ -35,7 +37,27 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 	private Integer secondCategoryId;
 	//注入二级分类的Service
 	private SecondCategoryService secondCategoryService;
+	//接收三级分类ID
+	private Integer thirdCategoryId;
+	//接收三级分类的Service
+	private ThirdCategoryService thirdCategoryService;
 	
+	public Integer getThirdCategoryId() {
+		return thirdCategoryId;
+	}
+
+	public void setThirdCategoryId(Integer thirdCategoryId) {
+		this.thirdCategoryId = thirdCategoryId;
+	}
+
+	public ThirdCategoryService getThirdCategoryService() {
+		return thirdCategoryService;
+	}
+
+	public void setThirdCategoryService(ThirdCategoryService thirdCategoryService) {
+		this.thirdCategoryService = thirdCategoryService;
+	}
+
 	public Integer getSecondCategoryId() {
 		return secondCategoryId;
 	}
@@ -141,5 +163,19 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 		//将pageBean存入值栈
 		ActionContext.getContext().getValueStack().set("pageBean2", pageBean);
 		return "findBySecondCategoryId";
+	}
+	
+	//根据三级分类的ID查询商品
+	public String findByThirdCategoryId() throws Exception {
+		//根据三级分类ID查询该三级分类
+		ThirdCategory thirdCategory = thirdCategoryService.findByThirdCategoryId(thirdCategoryId);
+		//将三级分类信息存入值栈
+		ActionContext.getContext().getValueStack().set("thirdCategory", thirdCategory);
+		
+		//根据三级分类查询三级分类下的所有商品，带分页
+		PageBean<Product> pageBean = productService.findByPageTCid(thirdCategoryId, page);
+		//将pageBean存入值栈
+		ActionContext.getContext().getValueStack().set("pageBean3", pageBean);
+		return "findByThirdCategoryId";
 	}
 }

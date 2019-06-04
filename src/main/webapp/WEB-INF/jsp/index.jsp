@@ -65,7 +65,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 																			<dl class="dl-sort">
 																				<dt><a href="${pageContext.request.contextPath}/product_findBySecondCategoryId.action?secondCategoryId=<s:property value="#sec.secondCategoryId"/>&page=1"><span><s:property value="#sec.secondCategoryName"/></span></a></dt>
 																				<s:iterator var="t" value="#sec.thirdCategories">
-																					<dd><a href="#"><span><s:property value="#t.thirdCategoryName"/></span></a></dd>
+																					<dd><a href="${pageContext.request.contextPath}/product_findByThirdCategoryId.action?thirdCategoryId=<s:property value="#t.thirdCategoryId"/>&page=1"><span><s:property value="#t.thirdCategoryName"/></span></a></dd>
 																				</s:iterator>
 																			</dl>
 																		</s:iterator>
