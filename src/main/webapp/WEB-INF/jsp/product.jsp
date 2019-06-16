@@ -22,6 +22,20 @@
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.imagezoom.min.js"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.flexslider.js"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/list.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				var list = $("#attrList li");
+				$("#attrList li").click(function(){
+					var count = $(this).index();
+					var attr = list.eq(count).text();
+					$("#attribute").val(attr);
+				})
+			})
+		
+			function addCart() {
+				document.getElementById("cartForm").submit();
+			}
+		</script>
 	</head>
 
 	<body>
@@ -169,14 +183,16 @@
 											<a href="javascript:;" title="关闭" class="close">×</a>
 										</div>
 										<div class="theme-popbod dform">
-											<form class="theme-signin" name="loginform" action="" method="post">
-
+											<form id="cartForm" class="theme-signin" name="loginform" action="${pageContext.request.contextPath}/cart_addCart.action" method="post">
+												<input type="hidden" name="pid" value="<s:property value="model.goodId"/>"/>
+												<input type="hidden" name="attribute" id="attribute"/>
 												<div class="theme-signin-left">
 													<s:iterator var="d" value="model.productDetails">
 														<div class="theme-options">
 															<div class="cart-title"><s:property value="#d.attributeName"/></div>
-															<ul>
-																<li class="sku-line selected"><s:property value="#d.attribute1"/></li>
+															<input type="hidden" name="attributeName" value="<s:property value="#d.attributeName"/>"/>
+															<ul id="attrList">
+																<li class="sku-line"><s:property value="#d.attribute1"/></li>
 																<li class="sku-line"><s:property value="#d.attribute2"/></li>
 																<li class="sku-line"><s:property value="#d.attribute3"/></li>
 																<li class="sku-line"><s:property value="#d.attribute4"/></li>
@@ -184,34 +200,27 @@
 															</ul>
 														</div>
 													</s:iterator>
-													
+													<div class="clear"></div>
 													<div class="theme-options">
 														<div class="cart-title number">数量</div>
 														<dd>
 															<input id="min" class="am-btn am-btn-default" name="" type="button" value="-" />
-															<input id="text_box" name="" type="text" value="1" style="width:30px;" />
+															<input id="text_box" name="count" type="text" value="1" style="width:30px;" />
 															<input id="add" class="am-btn am-btn-default" name="" type="button" value="+" />
 															<span id="Stock" class="tb-hidden">库存<span class="stock"><s:property value="model.goodNum"/></span>件</span>
 														</dd>
-
-													</div>
-													<div class="clear"></div>
-
-													<div class="btn-op">
-														<div class="btn am-btn am-btn-warning">确认</div>
-														<div class="btn close am-btn am-btn-warning">取消</div>
 													</div>
 												</div>
-												<div class="theme-signin-right">
-													<div class="img-info">
-														<img src="${pageContext.request.contextPath}/images/songzi.jpg" />
-													</div>
-													<div class="text-info">
-														<span class="J_Price price-now">¥39.00</span>
-														<span id="Stock" class="tb-hidden">库存<span class="stock">1000</span>件</span>
-													</div>
+												
+												<div class="pay">
+													<ul>
+														<li>
+															<div class="clearfix tb-btn tb-btn-basket theme-login">
+																<input id="LikBasket" value="加入购物车" type="button" onclick="addCart()"/>
+															</div>
+														</li>
+													</ul>
 												</div>
-
 											</form>
 										</div>
 									</div>
@@ -231,23 +240,6 @@
 							</div>
 						</div>
 
-						<div class="pay">
-							<div class="pay-opt">
-							<a href="home.html"><span class="am-icon-home am-icon-fw">首页</span></a>
-							<a><span class="am-icon-heart am-icon-fw">收藏</span></a>
-							
-							</div>
-							<li>
-								<div class="clearfix tb-btn tb-btn-buy theme-login">
-									<a id="LikBuy" title="点此按钮到下一步确认购买信息" href="#">立即购买</a>
-								</div>
-							</li>
-							<li>
-								<div class="clearfix tb-btn tb-btn-basket theme-login">
-									<a id="LikBasket" title="加入购物车" href="#"><i></i>加入购物车</a>
-								</div>
-							</li>
-						</div>
 
 					</div>
 

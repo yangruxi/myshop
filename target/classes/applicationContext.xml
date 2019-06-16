@@ -160,13 +160,18 @@
 		<property name="firstCategoryService" ref="firstCategoryService"></property>
 	</bean>
 	<!-- 商品模块的Action -->
-	<bean id="productAction" class="com.yang.shop.product.action.ProductAction">
+	<bean id="productAction" class="com.yang.shop.product.action.ProductAction" scope="prototype">
 		<!-- 注入一级分类的Service -->
 		<property name="firstCategoryService" ref="firstCategoryService"></property>
 		<!-- 注入二级分类的Service -->
 		<property name="secondCategoryService" ref="secondCategoryService"></property>
 		<!-- 注入三级分类的Service -->
 		<property name="thirdCategoryService" ref="thirdCategoryService"></property>
+		<!-- 注入商品模块的Service -->
+		<property name="productService" ref="productService"></property>
+	</bean>
+	<!-- 购物车模块的Action -->
+	<bean id="cartAction" class="com.yang.shop.cart.action.CartAction" scope="prototype">
 		<!-- 注入商品模块的Service -->
 		<property name="productService" ref="productService"></property>
 	</bean>

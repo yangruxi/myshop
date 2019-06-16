@@ -44,9 +44,10 @@ body, button, input, select, textarea {
 .td.td-item{float:left;width:100%;padding-left:30px ;}
 /*图片*/
 .td-item .item-info {margin: -3px 0px 0px 91px;}
+.item-pic {width:86px;}
 .item-content .item-pic a {text-align: center;}
-.item-content .item-pic {width: 80px; height: 80px; border: 1px solid #EEE; float: left;overflow: hidden;margin-top:20px;margin-left:3px;}	
-.td-item .item-basic-info { height: 40px; margin-top:20px; text-align:left}
+.item-content .item-pic img{float:left; max-width: 80px; height: 80px; margin-top:20px;margin-left:3px; border:1px solid #EEE;}	
+.td-item .item-basic-info {float:left; height: 40px; margin-top:20px; text-align:left;}
 /*规格*/
 .td.td-info{position: absolute;left:0px;top:55px;width:100%;overflow: hidden;padding-left: 120px;line-height: 16px;}
 .td.td-info .item-props{width:100%;}

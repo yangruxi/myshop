@@ -24,8 +24,8 @@
 		<%@ include file="menu.jsp" %>
 	</div>
 	<div class="clear"></div>	
-		<b class="line"></b>
-          <div class="search">
+	<b class="line"></b>
+     <div class="search">
 		<div class="search-list">
 		<div class="nav-table">
 			<%@ include file="nav.jsp" %>
